@@ -1,8 +1,52 @@
 {
-    "dechets": [
-        "Bouteille",
-        "Papier",
-        "Carton",
-        "Feuille"
-    ]
+    "dechets": {
+        "Encombrants": [
+             
+        ],
+        "Bois": [
+            "Planche", "Palette", "Poutre", "Étagère en bois"
+        ],
+        "Mobilier": [
+            "Chaise", "Table", "Commode", "Bureau", "Lit", "Fauteuil","Canapé", "Matelas"
+        ],
+        "Bois ronds": [
+            "Bûche", "Tronçon de bois", "Rondin"
+        ],
+        "Gravats": [
+            "Brique", "Ciment", "Carreau cassé"
+        ],
+        "Placo": [
+            "Plaque de plâtre", "Dalle de plâtre", "Morceau de placo"
+        ],
+        "Non Incinérables": [
+            "Isolant", "Laine de Verre"
+        ],
+        "Cartons": [
+            "Carton de déménagement", "Boîte de céréales", "Carton d'emballage"
+        ],
+        "Végétaux": [
+            "Feuilles", "Branches", "Herbe", "Arbres taillés"
+        ],
+        "Bidons": [
+            "Bidon d'huile", "Bidon de peinture", "Bidon de carburant"
+        ],
+        "Huile": [
+            "Huile moteur usagée", "Huile de friture"
+        ],
+        "Pile/Ampoules/Néon": [
+            "Pile AA", "Ampoule LED", "Tube néon"
+        ],
+        "Article de Sport": [
+            "Ballon de football", "Raquette", "Skateboard"
+        ],
+        "Pneu": [
+            "Pneu voiture", "Pneu vélo", "Pneu camion"
+        ],
+        "Verre": [
+            "Bouteille", "Vitre", "Bocal en verre"
+        ],
+        "Feuille": [
+            "Feuille de papier", "Journal", "Magazine"
+        ]
+    }
 }

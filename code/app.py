@@ -31,9 +31,9 @@ nomsBenne = ["Encombrants","Bois","Mobilier","Bois Rond","Gravats",
 
 # Textes et positions
 texte = ["ENTREE","Loge","Emmaus","DDS","Salle de repos","SORTIE",
-         "Pneu","Bidons","Huile","Pile/Ampoule/Néon","Jouets"]
+         "Pneu","Bidons","Huile","Pile/Ampoule/Néon","Jouets","Verre","Papier"]
 pos_texte = [[50,450],[25,330],[350,330],[500,330],[700,330],[WIDTH-50,450],
-             [1350,460],[880,310],[950,310],[1050,310],[1180,310]]
+             [1350,460],[880,310],[950,310],[1050,310],[1180,310],[WIDTH-80,310],[WIDTH-80,340],]
 
 # Créer des surfaces et rects pour les bennes
 bennes = []
@@ -52,6 +52,8 @@ conteneurs_noirs = [
     {"rect": pygame.Rect(1180-20, 320, 40, 10), "nom": "Jouets"},
     {"rect": pygame.Rect(1350-20, 470, 40, 10), "nom": "Pneu"},
     {"rect": pygame.Rect(1280, 350, 10, 80), "nom": "Articles De Sport"},
+    {"rect": pygame.Rect(WIDTH-100, 320, 40, 10), "nom": "Verre"},
+    {"rect": pygame.Rect(WIDTH-100, 350, 40, 10), "nom": "Papier"},
 ]
 
 # Bâtiments cliquables
@@ -68,7 +70,8 @@ voiture_vitesse = 2
 # Texte bulle
 texte_bulle = ""
 for i in range(randint(1,4)):
-    choix = choice(data["dechets"])
+    categorie = choice(list(data["dechets"].keys()))  # clé au hasard
+    choix = choice(data["dechets"][categorie])  
     if choix not in texte_bulle:
         texte_bulle += choix + ", "
 
