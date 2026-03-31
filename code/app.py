@@ -220,10 +220,6 @@ while running:
                             dragging_mot["couleur"] = VERT
                             dragging_mot["placed"] = True
                             Score_joueur += 1
-                            font = pygame.font.SysFont(None, 40)
-                            texte_surface = font.render("BRAVO !, Vous avez trouvé la bonne benne", True, NOIR)  # True = anti-aliasing
-                            texte_rect = texte_surface.get_rect(center=(SCREEN_WIDTH//2, 200))
-                            screen.blit(texte_surface, texte_rect)
                         else:
                             dragging_mot["couleur"] = ROUGE
                             Score_joueur -= 1
