@@ -1,5 +1,4 @@
 """
-1) fin du jeu : faire en sorte que les dechets soient jetés dans les bonnes bennes, et que le joueur puisse cliquer sur les bennes pour voir les dechets qui s'y trouvent
 2) rajouter les personnages qui peuvent aider a jeter les dechets dans les bonnes bennes (ex: un employé de la déchetterie,)
 3) rajouter un systeme d'aide pour faire en sorte que si le joueur a besoin d'aide il clique sur la salle de repos pour faire apparaitre un agent du tri et avoir des conseils
 4) rajouter un systeme de score pour faire en sorte que le joueur puisse gagner des points en jetant les dechets dans les bonnes bennes, et perdre des points en jetant les dechets dans les mauvaises bennes
@@ -47,7 +46,10 @@ Score_joueur = 0
 benne_width, benne_height = 120, 50
 angles_bennes = -15
 positions_bennes = [(20 + i*160, 760) for i in range(10)]
-nomsBenne = list(data["dechets"].keys())[:10]
+nomsBenne = list(data["dechets"].keys())[:9]
+nomsBenne.append("Vegetaux")
+
+
 
 bennes = []
 for i, (x, y) in enumerate(positions_bennes):
@@ -61,7 +63,7 @@ for i, (x, y) in enumerate(positions_bennes):
 conteneurs_noirs = [
     {"rect": pygame.Rect(860, 320, 40, 10), "nom": "Bidons"},
     {"rect": pygame.Rect(930, 320, 40, 10), "nom": "Huile"},
-    {"rect": pygame.Rect(1030, 320, 40, 10), "nom": "Pile/Ampoule/Néon"},
+    {"rect": pygame.Rect(1030, 320, 40, 10), "nom": "Pile/Ampoule/Neon"},
     {"rect": pygame.Rect(1150, 320, 40, 10), "nom": "Jouets"},
     {"rect": pygame.Rect(1330, 470, 40, 10), "nom": "Pneu"},
     {"rect": pygame.Rect(1280, 350, 10, 80), "nom": "Article de Sport"},
@@ -187,13 +189,12 @@ while running:
         pygame.draw.rect(surface, NOIR, (bulle_x, bulle_y, bulle_width, bulle_height), 2, border_radius=10)
 
         for j, mot in enumerate(mots_rects):
-            if not mot["placed"]:
-                # ⚡ Position initiale seulement si jamais définie
-                if mot["rect"].topleft == (0,0):
-                    mot["rect"].topleft = (bulle_x + 10, bulle_y + 10 + j*25)
-                # Mettre à jour la couleur si changée
-                mot["surface"] = font_bulle.render(mot["mot"], True, mot["couleur"])
-                surface.blit(mot["surface"], mot["rect"])
+            # ⚡ Position initiale seulement si jamais définie
+            if mot["rect"].topleft == (0,0):
+                mot["rect"].topleft = (bulle_x + 10, bulle_y + 10 + j*25)
+            # Mettre à jour la couleur si changée
+            mot["surface"] = font_bulle.render(mot["mot"], True, mot["couleur"])
+            surface.blit(mot["surface"], mot["rect"])
 
     # --- Événements ---
     for event in pygame.event.get():
