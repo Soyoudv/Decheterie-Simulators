@@ -1,52 +1,106 @@
 {
     "dechets": {
         "Encombrants": [
-             
+            "polystyrene",
+            "papier peint",
+            "cuvette de toilette"
         ],
         "Bois": [
-            "Planche", "Palette", "Poutre", "Étagère en bois"
+            "Planche",
+            "Palette",
+            "Poutre",
+            "etagere en bois"
         ],
         "Mobilier": [
-            "Chaise", "Table", "Commode", "Bureau", "Lit", "Fauteuil","Canapé", "Matelas"
+            "Chaise",
+            "Table",
+            "Commode",
+            "Bureau",
+            "Lit",
+            "Fauteuil",
+            "Canape",
+            "Matelas",
+            "Bois de Meubles",
+            "Meuble en bois",
+            "Meuble en metal",
+            "Meuble en plastique",
+            "Caisse en plastique",
+            "Caisse en metal",
+            "Oreiller en mousse",
+            "Coussin en mousse",
+            "Couette en mousse",
+            "Canape en mousse",
+            "Sommier en bois",
+            "Sommier en metal"
+
         ],
         "Bois ronds": [
-            "Bûche", "Tronçon de bois", "Rondin"
+            "Buche",
+            "Troncon de bois",
+            "Rondin"
         ],
         "Gravats": [
-            "Brique", "Ciment", "Carreau cassé"
+            "Brique",
+            "Ciment",
+            "Carreau cassé"
         ],
         "Placo": [
-            "Plaque de plâtre", "Dalle de plâtre", "Morceau de placo"
+            "Plaque de platre",
+            "Dalle de platre",
+            "Morceau de placo"
         ],
-        "Non Incinérables": [
-            "Isolant", "Laine de Verre"
+        "Non Incinerables": [
+            "Isolant",
+            "Laine de Verre"
         ],
         "Cartons": [
-            "Carton de déménagement", "Boîte de céréales", "Carton d'emballage"
+            "Carton de demenagement",
+            "Carton d'emballage"
         ],
-        "Végétaux": [
-            "Feuilles", "Branches", "Herbe", "Arbres taillés"
+        "Vegetaux": [
+            "Feuilles",
+            "Branches",
+            "Herbe",
+            "Arbres tailles"
         ],
         "Bidons": [
-            "Bidon d'huile", "Bidon de peinture", "Bidon de carburant"
+            "Bidon d'huile",
+            "Bidon de peinture",
+            "Bidon de carburant"
         ],
         "Huile": [
-            "Huile moteur usagée", "Huile de friture"
+            "Huile moteur usagee",
+            "Huile de friture"
         ],
-        "Pile/Ampoules/Néon": [
-            "Pile AA", "Ampoule LED", "Tube néon"
+        "Pile/Ampoules/Neon": [
+            "Pile AA",
+            "Ampoule LED",
+            "Tube neon"
         ],
         "Article de Sport": [
-            "Ballon de football", "Raquette", "Skateboard"
+            "Ballon de football",
+            "Raquette",
+            "Skateboard",
+            "Pneu velo"
         ],
         "Pneu": [
-            "Pneu voiture", "Pneu vélo", "Pneu camion"
+            "Pneu voiture",
+            "Pneu camion"
         ],
         "Verre": [
-            "Bouteille", "Vitre", "Bocal en verre"
+            "Bouteille",
+            "Vitre",
+            "Bocal en verre"
         ],
         "Feuille": [
-            "Feuille de papier", "Journal", "Magazine"
+            "Feuille de papier",
+            "Journal",
+            "Magazine"
+        ],
+        "DDS": [
+            "Produit chimique",
+            "Peinture",
+            "Produit de jardinage"
         ]
     }
 }

@@ -1,14 +1,35 @@
 import pygame, json
 from random import *
 
+"""
+1) fin du jeu : faire en sorte que les dechets soient jetés dans les bonnes bennes, et que le joueur puisse cliquer sur les bennes pour voir les dechets qui s'y trouvent
+2) rajouter les personnages qui peuvent aider a jeter les dechets dans les bonnes bennes (ex: un employé de la déchetterie,)
+3) rajouter un systeme d'aide pour faire en sorte que si le joueur a besoin d'aide il clique sur la salle de repos pour faire apparaitre un agent du tri et avoir des conseils
+4) rajouter un systeme de score pour faire en sorte que le joueur puisse gagner des points en jetant les dechets dans les bonnes bennes, et perdre des points en jetant les dechets dans les mauvaises bennes
+5) rajouter des pieges (feraille,amiante, etc) pour faire en sorte que le joueur puisse perdre des points si il jette les dechets dans les bennes.
+"""
+
+
+#recuperer les dechets dans le fichier json
 with open("code/listeDechet.json", "r") as f:
     data = json.load(f)
 
-# Initialisation
+# Initialisation + configuration de Pygame pour corriger le scaling sur Windows
+import ctypes
+ctypes.windll.user32.SetProcessDPIAware()  # corrige Windows scaling
+
 pygame.init()
+
+info = pygame.display.Info()
+SCREEN_WIDTH, SCREEN_HEIGHT = info.current_w, info.current_h-60
+
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+
+# résolution logique (TON jeu)
 WIDTH, HEIGHT = 1800, 1000
-screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Plan de Déchetterie")
+surface = pygame.Surface((WIDTH, HEIGHT))
+
+pygame.display.set_caption("Déchet Simulator")
 clock = pygame.time.Clock()
 
 # Couleurs
@@ -84,61 +105,62 @@ mots_rects = []
 dragging_mot = None
 offset_x_mot, offset_y_mot = 0, 0
 
+#debut du jeu
 running = True
 while running:
-    screen.fill(BLANC)
+    surface.fill(BLANC)
     font = pygame.font.SysFont(None, 20)
 
     # Dessiner le sol et zones
-    pygame.draw.rect(screen, GRIS, (0, 300, WIDTH, 550))
-    pygame.draw.rect(screen, NOIR, (0, 500, WIDTH, 200))
-    pygame.draw.rect(screen, BLANC, (0, 590, WIDTH, 20))
-    pygame.draw.rect(screen, BEIGE, (0, 310, 50, 50))
-    pygame.draw.rect(screen, BEIGE, (300, 310, 550, 80))
-    pygame.draw.rect(screen, BLEU, (1300, 400, 120, 50))
-    pygame.draw.rect(screen, BLEU, (1500, 400, 120, 50))
-    pygame.draw.rect(screen, BLEU, (1300, 300, 50, 100))
-    pygame.draw.rect(screen, BLEU, (1570, 300, 50, 100))
+    pygame.draw.rect(surface, GRIS, (0, 300, WIDTH, 550))
+    pygame.draw.rect(surface, NOIR, (0, 500, WIDTH, 200))
+    pygame.draw.rect(surface, BLANC, (0, 590, WIDTH, 20))
+    pygame.draw.rect(surface, BEIGE, (0, 310, 50, 50))
+    pygame.draw.rect(surface, BEIGE, (300, 310, 550, 80))
+    pygame.draw.rect(surface, BLEU, (1300, 400, 120, 50))
+    pygame.draw.rect(surface, BLEU, (1500, 400, 120, 50))
+    pygame.draw.rect(surface, BLEU, (1300, 300, 50, 100))
+    pygame.draw.rect(surface, BLEU, (1570, 300, 50, 100))
 
     # Conteneurs noirs
     for conteneur in conteneurs_noirs:
-        pygame.draw.rect(screen, NOIR, conteneur["rect"])
+        pygame.draw.rect(surface, NOIR, conteneur["rect"])
 
     # Textes
     for i in range(len(texte)):
         text_surface = font.render(texte[i], True, NOIR)
         text_rect = text_surface.get_rect(center=(pos_texte[i][0], pos_texte[i][1]))
-        screen.blit(text_surface, text_rect)
+        surface.blit(text_surface, text_rect)
 
     # Texte vertical
     texte2 = "Article de sport"
     text_surface = font.render(texte2, True, NOIR)
     text_rotated = pygame.transform.rotate(text_surface, -90)
     rect_rotated = text_rotated.get_rect(center=(1270, 390))
-    screen.blit(text_rotated, rect_rotated)
+    surface.blit(text_rotated, rect_rotated)
 
     # Bennes
     for benne in bennes:
-        screen.blit(benne["surf"], benne["rect"])
+        surface.blit(benne["surf"], benne["rect"])
         text_rect = font.render(benne["nom"], True, NOIR).get_rect(center=(benne["rect"].centerx, benne["rect"].top - 20))
-        screen.blit(font.render(benne["nom"], True, NOIR), text_rect)
+        surface.blit(font.render(benne["nom"], True, NOIR), text_rect)
 
     # Bâtiments cliquables (optionnel)
     for batiment in batiments_cliquables:
-        pygame.draw.rect(screen, BEIGE, batiment["rect"], 2)
+        pygame.draw.rect(surface, BEIGE, batiment["rect"], 2)
 
     # Déplacement voiture
     if voiture_x < WIDTH/4:
         voiture_x += voiture_vitesse
-    pygame.draw.rect(screen, VOITURE_COLOR, (voiture_x, voiture_y, voiture_width, voiture_height))
+    pygame.draw.rect(surface, VOITURE_COLOR, (voiture_x, voiture_y, voiture_width, voiture_height))
 
     # Bulle et mots draggable
     if voiture_x >= WIDTH/4:
         bulle_width, bulle_height = 200, max(80, len(mots_bulle)*25)
         bulle_x = voiture_x + voiture_width + 10
         bulle_y = voiture_y - 20
-        pygame.draw.rect(screen, BLANC, (bulle_x, bulle_y, bulle_width, bulle_height), border_radius=10)
-        pygame.draw.rect(screen, NOIR, (bulle_x, bulle_y, bulle_width, bulle_height), 2, border_radius=10)
+        pygame.draw.rect(surface, BLANC, (bulle_x, bulle_y, bulle_width, bulle_height), border_radius=10)
+        pygame.draw.rect(surface, NOIR, (bulle_x, bulle_y, bulle_width, bulle_height), 2, border_radius=10)
 
         # Initialiser les mots s'ils n'ont pas encore de rects
         if not mots_rects:
@@ -149,7 +171,7 @@ while running:
 
         # Afficher les mots
         for mot in mots_rects:
-            screen.blit(mot["surface"], mot["rect"])
+            surface.blit(mot["surface"], mot["rect"])
 
     # Gestion événements
     for event in pygame.event.get():
@@ -157,7 +179,11 @@ while running:
             running = False
 
         elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
-            pos = event.pos
+            scale_x = WIDTH / SCREEN_WIDTH
+            scale_y = HEIGHT / SCREEN_HEIGHT
+
+            pos = (event.pos[0] * scale_x, event.pos[1] * scale_y)
+
             # Cliquer sur mots draggable
             for mot in mots_rects:
                 if mot["rect"].collidepoint(pos):
@@ -183,9 +209,14 @@ while running:
 
         elif event.type == pygame.MOUSEMOTION:
             if dragging_mot:
-                dragging_mot["rect"].x = event.pos[0] + offset_x_mot
-                dragging_mot["rect"].y = event.pos[1] + offset_y_mot
+                pos = (event.pos[0] * scale_x, event.pos[1] * scale_y)
 
+                dragging_mot["rect"].x = pos[0] + offset_x_mot
+                dragging_mot["rect"].y = pos[1] + offset_y_mot
+
+
+    scaled_surface = pygame.transform.scale(surface, (SCREEN_WIDTH, SCREEN_HEIGHT))
+    screen.blit(scaled_surface, (0, 0))
     pygame.display.flip()
     clock.tick(60)
 
