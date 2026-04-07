@@ -22,3 +22,4 @@ DéchetSimulators est un jeu/simulation interactif développé en **Python** ave
 
 ```bash
 pip install pygame
+

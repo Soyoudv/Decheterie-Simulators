@@ -39,6 +39,7 @@ BLEU = (0, 0, 153)
 VOITURE_COLOR = (255,0,255)
 VERT = (0, 200, 0)
 ROUGE = (255, 0, 0)
+GRISCLAIR =(200, 200, 200)
 ListeColVoiture = [BLANC, JAUNE, GRIS, BEIGE, BLEU, VERT, ROUGE, VOITURE_COLOR]
 
 # --- Score ---
@@ -139,8 +140,8 @@ while running:
             nouvelle_voiture()
 
     # --- Sol et zones ---
-    pygame.draw.rect(surface, GRIS, (0, 300, WIDTH, 550))
-    pygame.draw.rect(surface, NOIR, (0, 500, WIDTH, 200))
+    pygame.draw.rect(surface, GRISCLAIR, (0, 300, WIDTH, 550))
+    pygame.draw.rect(surface, GRIS, (0, 500, WIDTH, 200))
     pygame.draw.rect(surface, BLANC, (0, 590, WIDTH, 20))
     pygame.draw.rect(surface, BEIGE, (0, 310, 50, 50))
     pygame.draw.rect(surface, BEIGE, (300, 310, 550, 80))
