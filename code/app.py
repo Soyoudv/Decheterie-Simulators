@@ -13,7 +13,7 @@ with open("code/listeDechet.json", "r") as f:
 
 # --- Initialisation Pygame + scaling Windows ---
 import ctypes
-ctypes.windll.user32.SetProcessDPIAware()
+#ctypes.windll.user32.SetProcessDPIAware()
 pygame.init()
 
 info = pygame.display.Info()
@@ -39,7 +39,7 @@ VOITURE_COLOR = (255,0,255)
 VERT = (0, 200, 0)
 ROUGE = (255, 0, 0)
 GRISCLAIR =(200, 200, 200)
-ListeColVoiture = [BLANC, JAUNE, GRIS, BEIGE, BLEU, VERT, ROUGE, VOITURE_COLOR]
+ListeColVoiture = [BLANC, JAUNE, BEIGE, BLEU, VERT, ROUGE, VOITURE_COLOR]
 
 # --- Score ---
 Score_joueur = 0
@@ -65,9 +65,9 @@ for i, (x, y) in enumerate(positions_bennes):
 # --- Conteneurs noirs ---
 conteneurs_noirs = [
     {"rect": pygame.Rect(860, 320, 40, 10), "nom": "Bidons"},
-    {"rect": pygame.Rect(930, 320, 40, 10), "nom": "Huile"},
-    {"rect": pygame.Rect(1030, 320, 40, 10), "nom": "Pile/Ampoule/Neon"},
-    {"rect": pygame.Rect(1150, 320, 40, 10), "nom": "Jouets"},
+    {"rect": pygame.Rect(960, 320, 40, 10), "nom": "Huile"},
+    {"rect": pygame.Rect(1090, 320, 40, 10), "nom": "Pile/Ampoule/Neon"},
+    {"rect": pygame.Rect(1220, 320, 40, 10), "nom": "Jouets"},
     {"rect": pygame.Rect(1330, 470, 40, 10), "nom": "Pneu"},
     {"rect": pygame.Rect(1280, 350, 10, 80), "nom": "Article de Sport"},
     {"rect": pygame.Rect(WIDTH-100, 320, 40, 10), "nom": "Verre"},
@@ -159,10 +159,8 @@ while running:
         pygame.draw.rect(surface, NOIR, conteneur["rect"])
 
     # --- Textes ---
-    texte = ["ENTREE","Loge","Emmaus","DDS","Salle de repos","SORTIE",
-             "Pneu","Bidons","Huile","Pile/Ampoule/Neon","Jouets","Verre","Papier"]
-    pos_texte = [[50,450],[25,330],[350,330],[500,330],[700,330],[WIDTH-50,450],
-                 [1350,460],[880,310],[950,310],[1050,310],[1180,310],[WIDTH-80,310],[WIDTH-80,340]]
+    texte = ["ENTREE","Loge","Emmaus","DDS","Salle de repos","SORTIE","Pneu","Bidons","Huile","Pile/Ampoule/Neon","Jouets","Verre","Papier"]
+    pos_texte = [[50,450],[25,330],[350,330],[500,330],[700,330],[WIDTH-50,450],[1350,460],[880,310],[980,310],[1110,310],[1240,310],[WIDTH-80,310],[WIDTH-80,340]]
     for i in range(len(texte)):
         text_surface = font.render(texte[i], True, NOIR)
         text_rect = text_surface.get_rect(center=(pos_texte[i][0], pos_texte[i][1]))
