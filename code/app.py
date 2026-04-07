@@ -132,7 +132,7 @@ while running:
         # Voiture reprend son mouvement si tous les mots sont placés
         voiture_arretée = False
         if voiture_x < WIDTH:
-            voiture_x += voiture_vitesse
+            voiture_x += 6
         else:
             nouvelle_voiture()
 
