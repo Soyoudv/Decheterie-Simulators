@@ -22,4 +22,14 @@ DéchetSimulators est un jeu/simulation interactif développé en **Python** ave
 
 ```bash
 pip install pygame
+```
 
+---
+## Fonctionnement du jeu 
+
+Bonjour vous avez entendu par votre agglomération (Lundi Alggo) qu'une nouvelle decheterie à Telleville vient d'ouvrir près de chez vous. Ainsi dès l'ouverture vous vous y rendez pour la découvrir et la un agent de cette décheterie vous propose de vous apprendre a trier en aidant les gens à trier pour cela vous devrez vider les voitures des gens et placer les dechets dans les bonnes bennes vous rapportant des points et inversement si vous vous trompez.
+
+## Astuce
+
+1. Des agents de la decheterie se trouve dans la salle de repos vous pouvez les soliciter si vous ne savez pas ou jeter les dechets (Utilisable 1 fois par voiture pour 1 objet).
+2. Le dechet apparait en vert lorsque que cela correpond à la bonne benne et en rouge quand le dechet n'est pas dans la bonne benne.
