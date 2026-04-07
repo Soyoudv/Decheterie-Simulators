@@ -4,16 +4,20 @@
 4) rajouter un systeme de score pour faire en sorte que le joueur puisse gagner des points en jetant les dechets dans les bonnes bennes, et perdre des points en jetant les dechets dans les mauvaises bennes
 5) rajouter des pieges (feraille,amiante, etc) pour faire en sorte que le joueur puisse perdre des points si il jette les dechets dans les bennes.
 """
-import pygame, json
+import pygame, json, ctypes, platform
 from random import *
+
 
 # --- Récupérer les déchets ---
 with open("code/listeDechet.json", "r") as f:
     data = json.load(f)
 
 # --- Initialisation Pygame + scaling Windows ---
-import ctypes
-#ctypes.windll.user32.SetProcessDPIAware()
+
+if (platform.system() == "Windows"):
+    import ctypes
+    ctypes.windll.user32.SetProcessDPIAware()
+
 pygame.init()
 
 info = pygame.display.Info()
