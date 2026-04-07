@@ -12,8 +12,10 @@ with open("code/listeDechet.json", "r") as f:
     data = json.load(f)
 
 # --- Initialisation Pygame + scaling Windows ---
-import ctypes
-ctypes.windll.user32.SetProcessDPIAware()
+import platform
+if (platform.system() == "Windows"):
+    import ctypes
+    ctypes.windll.user32.SetProcessDPIAware()
 pygame.init()
 
 info = pygame.display.Info()
