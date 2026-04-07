@@ -27,6 +27,7 @@ surface = pygame.Surface((WIDTH, HEIGHT))
 pygame.display.set_caption("Déchet Simulator")
 clock = pygame.time.Clock()
 
+
 # --- Couleurs ---
 BLANC = (255, 255, 255)
 NOIR = (0, 0, 0)
@@ -49,6 +50,7 @@ angles_bennes = -15
 positions_bennes = [(20 + i*160, 760) for i in range(10)]
 nomsBenne = list(data["dechets"].keys())[:9]
 nomsBenne.append("Vegetaux")
+
 
 
 
@@ -88,6 +90,8 @@ coleur = VOITURE_COLOR
 font_bulle = pygame.font.SysFont(None, 20)
 mots_rects = []
 
+
+
 def nouvelle_voiture():
     """Réinitialise la voiture et génère de nouveaux déchets"""
     global voiture_x, voiture_y, mots_rects, coleur
@@ -118,6 +122,8 @@ offset_x_mot, offset_y_mot = 0, 0
 running = True
 while running:
     surface.fill(BLANC)
+    
+
     font = pygame.font.SysFont(None, 20)
 
     # --- Déplacement voiture ---
@@ -172,7 +178,6 @@ while running:
         surface.blit(benne["surf"], benne["rect"])
         text_rect = font.render(benne["nom"], True, NOIR).get_rect(center=(benne["rect"].centerx, benne["rect"].top - 20))
         surface.blit(font.render(benne["nom"], True, NOIR), text_rect)
-
     # --- Bâtiments cliquables ---
     for batiment in batiments_cliquables:
         pygame.draw.rect(surface, BEIGE, batiment["rect"], 2)
@@ -236,7 +241,9 @@ while running:
     # --- Affichage score ---
     score_surf = font.render(f"Score : {Score_joueur}", True, NOIR)
     surface.blit(score_surf, (50, 50))
-
+    font2 = pygame.font.Font(None, 50)
+    score_surf = font2.render("Bienvenue dans la decheterie de Telleville géré par Lundi Alggo", True, NOIR)
+    surface.blit(score_surf, (WIDTH//2 - score_surf.get_width()//2, 50))
     # --- Affichage final ---
     scaled_surface = pygame.transform.scale(surface, (SCREEN_WIDTH, SCREEN_HEIGHT))
     screen.blit(scaled_surface, (0, 0))
