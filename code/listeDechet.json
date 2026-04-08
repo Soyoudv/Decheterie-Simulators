@@ -1,0 +1,137 @@
+{
+    "dechets": {
+        "Encombrants": [
+            "Polystyrene",
+            "Papier peint",
+            "Cuvette de toilette",
+            "Pots de Peinture en Plastique"
+        ],
+        "Bois": [
+            "Planche",
+            "Palette",
+            "Poutre en bois"
+            
+        ],
+        "Mobilier": [
+            "Chaise",
+            "Table",
+            "Commode",
+            "Bureau",
+            "Lit",
+            "Fauteuil",
+            "Canape",
+            "Matelas",
+            "Bois de Meubles",
+            "Meuble en bois",
+            "Meuble en metal",
+            "Meuble en plastique",
+            "Caisse en plastique",
+            "Caisse en metal",
+            "Oreiller",
+            "Coussin",
+            "Couette",
+            "Canape",
+            "Sommier en bois",
+            "Sommier en metal",
+            "Piscine",
+            "Trampoline",
+            "Caisse en Plastique",
+            "Chaise d'exterieur",
+            "Chaise de Bureau",
+            "Parasol",
+            "Salon Exterieur"
+
+        ],
+        "Bois ronds": [
+            "Buche",
+            "Troncon de bois",
+            "Rondin"
+        ],
+        "Gravats": [
+            "Brique",
+            "Parpaings",
+            "Carrelarge",
+            "Carreau casse"
+        ],
+        "Placo": [
+            "Plaque de platre",
+            "Dalle de platre",
+            "Cloison Sandwich",
+            "Morceau de placo"
+        ],
+        "Non Incinerables": [
+            "Isolant",
+            "Vitre",
+            "Ciment",
+            "Laine de Verre",
+            "Miroir",
+            "Polystyrene extrude"
+        ],
+        "Cartons": [
+            "Carton de demenagement",
+            "Carton d'emballage",
+            "Cartons"
+        ],
+        "Vegetaux": [
+            "Feuilles",
+            "Branches",
+            "Herbe",
+            "Pelouse",
+            "Arbres tailles"
+        ],
+        "Bidons": [
+            "Bidon d'huile vide",
+            "Bidon de peinture vide",
+            "Bidon de carburant vide"
+        ],
+        "Huile": [
+            "Huile moteur usagee",
+            "Huile de friture"
+        ],
+        "Pile/Ampoule/Neon": [
+            "Pile AA",
+            "Pile AAA",
+            "Pile Bouton",
+            "Ampoule LED",
+            "Tube neon"
+        ],
+        "Article de Sport": [
+            "Ballon de football",
+            "Ballon de basketball",
+            "Raquette",
+            "Skateboard",
+            "Matelas Gonfable de piscine",
+            "Piscine pour enfant",
+            "Pneu velo"
+        ],
+        "Pneu": [
+            "Pneu voiture",
+            "Pneu camion"
+        ],
+        "Verre": [
+            "Bouteille en verre",
+            "Bouteille de Biere/Vins/Champagne",
+            "Pots de Confiture",
+
+            "Bocal en verre"
+        ],
+        "Papier": [
+            "Feuille de papier",
+            "Journal",
+            "Livre",
+            "Magazine"
+        ],
+        "DDS": [
+            "Produit chimique",
+            "Bombe de Peinture",
+            "Rouleau",
+            "Pinceau",
+            "Produit Inconnu",
+            "Peinture",
+            "Bombe anticrevaison",
+            "Cartouche de silicone",
+            "Cartouche de Mastique",
+            "Produit de jardinage"
+        ]
+    }
+}
