@@ -43,6 +43,12 @@ conteneurs= pygame.transform.scale(conteneurs, (100, 100))
 conteneurs90 = pygame.image.load("image/conteneur_maritime_sim_90.png").convert_alpha()
 conteneurs90= pygame.transform.scale(conteneurs90, (100, 100))
 
+batimentpng = pygame.image.load("image/batiment.png").convert_alpha()
+batimentpng= pygame.transform.scale(batimentpng, (150, 110))
+
+batimentpngrepos = pygame.image.load("image/batiment.png").convert_alpha()
+batimentpngrepos= pygame.transform.scale(batimentpngrepos, (220, 110))
+
 # --- Gardien ---
 #personnes = ["Audrey","SuperVégéto","Anguille","Gipsy","Herbi"]
 personnages_aide = [
@@ -111,9 +117,9 @@ conteneurs_noirs = [
 
 # --- Bâtiments cliquables ---
 batiments_cliquables = [
-    {"rect": pygame.Rect(310, 310, 80, 80), "nom": "Emmaus"},
-    {"rect": pygame.Rect(460, 310, 80, 80), "nom": "DDS"},
-    {"rect": pygame.Rect(700, 310, 80, 80), "nom": "Salle de repos"},
+    {"rect": pygame.Rect(300, 300, 143,112), "nom": "Emmaus"},
+    {"rect": pygame.Rect(439, 300, 145, 112), "nom": "DDS"},
+    {"rect": pygame.Rect(584, 300, 216, 112), "nom": "Salle de repos"},
 
 ]
 taille_voiture = 0
@@ -212,13 +218,15 @@ while running:
     pygame.draw.rect(surface, GRIS, (0, 500, WIDTH, 200))
     pygame.draw.rect(surface, BLANC, (0, 590, WIDTH, 20))
     pygame.draw.rect(surface, BEIGE, (0, 310, 50, 50))
-    pygame.draw.rect(surface, BEIGE, (300, 310, 500, 80))
+    #pygame.draw.rect(surface, BEIGE, (300, 310, 500, 80))
     surface.blit(carre, (160,60))
     surface.blit(conteneurs, (1299,375))
     surface.blit(conteneurs, (1490,375))
     surface.blit(conteneurs90, (1275,300))
     surface.blit(conteneurs90, (1516,300))
-
+    surface.blit(batimentpng, (300,300))
+    surface.blit(batimentpng, (440,300))
+    surface.blit(batimentpngrepos, (580,300))
     # --- Conteneurs noirs ---
     for conteneur in conteneurs_noirs:
         pygame.draw.rect(surface, NOIR, conteneur["rect"])
@@ -243,7 +251,7 @@ while running:
         surface.blit(font.render(benne["nom"], True, NOIR), text_rect)
     # --- Bâtiments cliquables ---
     for batiment in batiments_cliquables:
-        pygame.draw.rect(surface, BEIGE, batiment["rect"], 2)
+        pygame.draw.rect(surface, GRISCLAIR, batiment["rect"], 1)
 
     # --- Voiture ---
     pygame.draw.rect(surface, coleur, (voiture_x, voiture_y, voiture_width, voiture_height))
