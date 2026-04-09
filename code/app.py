@@ -4,6 +4,8 @@ from pageFin import page_fin
 from pause import menu_pause
 from random import *
 
+
+
 # --- Récupérer les déchets ---
 with open("code/listeDechet.json", "r") as f:
     data = json.load(f)

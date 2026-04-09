@@ -50,13 +50,13 @@ def ecran_demarrage(surface, WIDTH, HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT, screen,
             elif event.type == pygame.KEYDOWN:
                 if etape == 1:
                     if event.key == pygame.K_1:
-                        score_max = 10
-                        running_start = False
-                    elif event.key == pygame.K_2:
                         score_max = 20
                         running_start = False
+                    elif event.key == pygame.K_2:
+                        score_max = 40
+                        running_start = False
                     elif event.key == pygame.K_3:
-                        score_max = 30
+                        score_max = 60
                         running_start = False
                     elif event.key == pygame.K_4:
                         etape = 2
