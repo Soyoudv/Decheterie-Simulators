@@ -9,6 +9,8 @@ def ecran_demarrage(surface, WIDTH, HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT, screen,
         font_title = pygame.font.Font("fonts/arial.ttf", 80)
         font_text = pygame.font.Font("fonts/arial.ttf", 40)
         font_small = pygame.font.Font("fonts/arial.ttf", 30)
+
+        clic_button = pygame.mixer.Sound("audio/selectbutton.mp3")
         
 
         # --- Logo carré ---
@@ -92,22 +94,27 @@ def ecran_demarrage(surface, WIDTH, HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT, screen,
                             if key == "facile":
                                 score_max = 20
                                 running_start = False
+                                clic_button.play()
 
                             elif key == "moyen":
                                 score_max = 40
                                 running_start = False
+                                clic_button.play()
 
                             elif key == "difficile":
                                 score_max = 60
                                 running_start = False
+                                clic_button.play()
 
                             elif key == "perso":
                                 etape = 2
+                                clic_button.play()
                 elif event.type == pygame.KEYDOWN:
                     if etape == 2:
                         if event.key == pygame.K_RETURN and user_input.isdigit():
                             score_max = int(user_input)
                             running_start = False
+                            
                         elif event.key == pygame.K_BACKSPACE:
                             user_input = user_input[:-1]
                         elif event.unicode.isdigit():
@@ -118,5 +125,6 @@ def ecran_demarrage(surface, WIDTH, HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT, screen,
             screen.blit(scaled_surface, (0,0))
             pygame.display.flip()
             clock.tick(60)
+            
 
         return score_max
