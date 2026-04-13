@@ -13,11 +13,16 @@ def page_fin(surface, WIDTH, HEIGHT, Score_joueur, nbdechets, SCREEN_WIDTH, SCRE
     # --- Logo rond ---
     rond = pygame.image.load("image/LenulAggloRond.png").convert()
     rond= pygame.transform.scale(rond, (200, 200))
+    winning = pygame.mixer.Sound("audio/winning.mp3")
+    winning.set_volume(0.1)
+    winning.play()
 
     running_fin = True
     while running_fin:
         surface.fill((20, 20, 50))  # fond sombre
         surface.blit(carre, (160,60))
+        
+        
 
         # Titre
         titre = font_title.render("Félicitations !", True, (255, 255, 0))
