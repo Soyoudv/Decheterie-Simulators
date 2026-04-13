@@ -1,10 +1,10 @@
 ## Décheterie Simulators
 <p align="center">  
-  <img src="image/accueil.PNG" width="600px">
-  <img src="image/demarrage.PNG" width="300px">
-  <img src="image/jeu.PNG" width="300px"><br><br>
-  <img src="image/pause.PNG" width="300px">
-  <img src="image/fin.PNG" width="300px">
+  <img src="image/ImageGit/accueil.PNG" width="600px">
+  <img src="image/ImageGit/demarrage.PNG" width="300px">
+  <img src="image/ImageGit/jeu.PNG" width="300px"><br><br>
+  <img src="image/ImageGit/pause.PNG" width="300px">
+  <img src="image/ImageGit/fin.PNG" width="300px">
   
 </p>
 
