@@ -8,12 +8,12 @@ def ecran_accueil(WIDTH, HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT, screen, clock):
     game_surface = pygame.Surface((WIDTH, HEIGHT))
 
     carre = pygame.transform.scale(
-        pygame.image.load("image/LenulAgglo.png").convert(),
+        pygame.image.load("image/Logo/LenulAgglo.png").convert(),
         (150, 150)
     )
 
     rond = pygame.transform.scale(
-        pygame.image.load("image/LenulAggloRond.png").convert(),
+        pygame.image.load("image/Logo/LenulAggloRond.png").convert(),
         (200, 200)
     )
     clic_button = pygame.mixer.Sound("audio/selectbutton.mp3")

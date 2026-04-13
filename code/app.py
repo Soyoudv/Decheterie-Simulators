@@ -70,33 +70,37 @@ GRISCLAIR =(200, 200, 200)
 
 
 # --- Image ---
-image = pygame.image.load("image/Yannick.png").convert_alpha()
+image = pygame.image.load("image/Agent/Yannick.png").convert_alpha()
 image= pygame.transform.scale(image, (50, 50))
 
-voiture = pygame.image.load("image/voiture1.png").convert_alpha()
+voiture = pygame.image.load("image/Voiture/voiture1.png").convert_alpha()
 voiture= pygame.transform.scale(voiture, (voiture_width, voiture_height))
 
-voiture2 = pygame.image.load("image/voiture2.png").convert_alpha()
+voiture2 = pygame.image.load("image/Voiture/voiture2.png").convert_alpha()
 voiture2= pygame.transform.scale(voiture2, (voiture_width, voiture_height))
 
 # --- Logo carré ---
-carre = pygame.image.load("image/LenulAgglo.png").convert()
+carre = pygame.image.load("image/Logo/LenulAgglo.png").convert()
 carre= pygame.transform.scale(carre, (150, 150))
 # --- Logo rond ---
-rond = pygame.image.load("image/LenulAggloRond.png").convert()
+rond = pygame.image.load("image/Logo/LenulAggloRond.png").convert()
 rond= pygame.transform.scale(rond, (200, 200))
 
-conteneurs = pygame.image.load("image/conteneur_maritime.png").convert_alpha()
+conteneurs = pygame.image.load("image/Dessin/conteneur_maritime.png").convert_alpha()
 conteneurs= pygame.transform.scale(conteneurs, (100, 100))
 
-conteneurs90 = pygame.image.load("image/conteneur_maritime_sim_90.png").convert_alpha()
+conteneurs90 = pygame.image.load("image/Dessin/conteneur_maritime_sim_90.png").convert_alpha()
 conteneurs90= pygame.transform.scale(conteneurs90, (100, 100))
 
-batimentpng = pygame.image.load("image/batiment.png").convert_alpha()
+batimentpng = pygame.image.load("image/Dessin/batiment.png").convert_alpha()
 batimentpng= pygame.transform.scale(batimentpng, (150, 110))
 
-batimentpngrepos = pygame.image.load("image/batiment.png").convert_alpha()
+batimentpngrepos = pygame.image.load("image/Dessin/batiment.png").convert_alpha()
 batimentpngrepos= pygame.transform.scale(batimentpngrepos, (220, 110))
+
+benne_width, benne_height = 140, 60
+benne_img = pygame.image.load("image/Dessin/benne.png").convert_alpha()
+benne_img = pygame.transform.scale(benne_img, (benne_width, benne_height))
 
 # --- Gardien ---
 personnages_aide = [
@@ -108,15 +112,13 @@ personnages_aide = [
 listevoiture = [voiture2,voiture]
 
 # --- Bennes ---
-benne_width, benne_height = 140, 60
+
 angles_bennes = -15
 positions_bennes = [(20 + i*160, 760) for i in range(10)]
 nomsBenne = list(data["dechets"].keys())[:9]
 nomsBenne.append("Vegetaux")
 
-# Charger UNE image de benne (avant la boucle)
-benne_img = pygame.image.load("image/benne.png").convert_alpha()
-benne_img = pygame.transform.scale(benne_img, (benne_width, benne_height))
+
 
 bennes = []
 for i, (x, y) in enumerate(positions_bennes):

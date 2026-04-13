@@ -14,10 +14,10 @@ def ecran_demarrage(surface, WIDTH, HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT, screen,
         
 
         # --- Logo carré ---
-        carre = pygame.image.load("image/LenulAgglo.png").convert()
+        carre = pygame.image.load("image/Logo/LenulAgglo.png").convert()
         carre= pygame.transform.scale(carre, (150, 150))
         # --- Logo rond ---
-        rond = pygame.image.load("image/LenulAggloRond.png").convert()
+        rond = pygame.image.load("image/Logo/LenulAggloRond.png").convert()
         rond= pygame.transform.scale(rond, (200, 200))
 
         score_max = 20

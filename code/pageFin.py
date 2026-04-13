@@ -8,10 +8,10 @@ def page_fin(surface, WIDTH, HEIGHT, Score_joueur, nbdechets, SCREEN_WIDTH, SCRE
     font_text = pygame.font.Font("fonts/arial.ttf", 40)
     
     # --- Logo carré ---
-    carre = pygame.image.load("image/LenulAgglo.png").convert()
+    carre = pygame.image.load("image/Logo/LenulAgglo.png").convert()
     carre= pygame.transform.scale(carre, (150, 150))
     # --- Logo rond ---
-    rond = pygame.image.load("image/LenulAggloRond.png").convert()
+    rond = pygame.image.load("image/Logo/LenulAggloRond.png").convert()
     rond= pygame.transform.scale(rond, (200, 200))
     winning = pygame.mixer.Sound("audio/winning.mp3")
     winning.set_volume(0.1)

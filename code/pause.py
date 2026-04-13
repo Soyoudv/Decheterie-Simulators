@@ -21,7 +21,7 @@ def menu_pause(surface, WIDTH, HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT, screen, cloc
     font_title = pygame.font.Font("fonts/arial.ttf", 80)
     font_button = pygame.font.Font("fonts/arial.ttf", 40)
 
-    carre = pygame.image.load("image/LenulAgglo.png").convert()
+    carre = pygame.image.load("image/Logo/LenulAgglo.png").convert()
     carre = pygame.transform.scale(carre, (150, 150))
 
     # Boutons
