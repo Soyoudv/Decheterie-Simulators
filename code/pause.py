@@ -4,9 +4,8 @@ import pygame, sys
 
 
 def menu_pause(surface, WIDTH, HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT, screen, clock):
-    font_title = pygame.font.Font(None, 80)
-    font_text = pygame.font.Font(None, 40)
-    surface = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    font_title = pygame.font.Font("fonts/arial.ttf", 80)
+    font_text = pygame.font.Font("fonts/arial.ttf", 40)
     # --- Logo carré ---
     carre = pygame.image.load("image/LenulAgglo.png").convert()
     carre= pygame.transform.scale(carre, (150, 150))
