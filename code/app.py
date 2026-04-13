@@ -132,7 +132,7 @@ voiture_vitesse = 2
 coleur = VOITURE_COLOR
 
 # --- Mots draggables ---
-font_bulle = pygame.font.SysFont(None, 20)
+font_bulle = pygame.font.Font("fonts/arial.ttf", 15)
 mots_rects = []
 
 
@@ -193,7 +193,7 @@ while running:
     taille_voiture = len(mots_rects)
 
 
-    font = pygame.font.SysFont(None, 20)
+    font = pygame.font.Font("fonts/arial.ttf", 15)
 
     # --- Déplacement voiture ---
     # Déplacement voiture
@@ -221,7 +221,7 @@ while running:
     pygame.draw.rect(surface, BLANC, (0, 590, WIDTH, 20))
     pygame.draw.rect(surface, BEIGE, (0, 310, 50, 50))
     #pygame.draw.rect(surface, BEIGE, (300, 310, 500, 80))
-    surface.blit(carre, (160,60))
+    surface.blit(carre, (10,60))
     surface.blit(conteneurs, (1299,375))
     surface.blit(conteneurs, (1490,375))
     surface.blit(conteneurs90, (1275,300))
@@ -234,7 +234,7 @@ while running:
         pygame.draw.rect(surface, NOIR, conteneur["rect"])
 
     # --- Textes ---
-    texte = ["ENTREE","Loge","Emmaus","DDS","Salle de repos","SORTIE","Pneu","Bidons","Huile","Pile/Ampoule/Neon","Jouets","Verre","Papier"]
+    texte = ["Entree","Loge","Emmaus","DDS","Salle de repos","Sortie","Pneu","Bidons","Huile","Pile/Ampoule/Neon","Jouets","Verre","Papier"]
     pos_texte = [[50,450],[25,330],[350,330],[500,330],[700,330],[WIDTH-50,450],[1350,460],[880,310],[980,310],[1110,310],[1240,310],[WIDTH-80,310],[WIDTH-80,340]]
     for i in range(len(texte)):
         text_surface = font.render(texte[i], True, NOIR)
@@ -288,7 +288,7 @@ while running:
             # Mettre à jour la couleur si changée
             mot["surface"] = font_bulle.render(mot["mot"], True, mot["couleur"])
             surface.blit(mot["surface"], mot["rect"])
-            pygame.draw.rect(surface, NOIR, (mot["rect"].x-5, mot["rect"].y-4, 180, 20), 2, border_radius=10)
+            pygame.draw.rect(surface, NOIR, (mot["rect"].x-5, mot["rect"].y-4, mot["rect"].width+10, mot["rect"].height+7), 2, border_radius=10)
 
     # --- Événements ---
     for event in pygame.event.get():
@@ -371,9 +371,9 @@ while running:
     pygame.draw.rect(surface, NOIR, (barre_x, barre_y, barre_width, barre_height), 3)
     score_surf = font.render(f"Score : {Score_joueur}", True, NOIR)
     surface.blit(score_surf, (WIDTH//2 -10, 150))
-    font2 = pygame.font.Font(None, 50)
+    font2 = pygame.font.Font("fonts/arial.ttf", 50)
     score2_surf = font2.render("Bienvenue dans la decheterie de Telleville géré par Lenul Agglo", True, NOIR)
-    surface.blit(score2_surf, (WIDTH//2 - score2_surf.get_width()//2, 50))
+    surface.blit(score2_surf, (WIDTH//2 - score2_surf.get_width()//2, 20))
     # --- Affichage final ---
     scaled_surface = pygame.transform.scale(surface, (SCREEN_WIDTH, SCREEN_HEIGHT))
     screen.blit(scaled_surface, (0, 0))
