@@ -361,7 +361,7 @@ while running:
             Score_joueur = 0
             nouvelle_voiture()
             # éventuellement relancer l'écran de démarrage pour choisir la difficulté
-            score_max = ecran_demarrage(surface, WIDTH, HEIGHT)
+            score_max = ecran_demarrage(surface, 1800, 1000, SCREEN_WIDTH, SCREEN_HEIGHT, screen, clock)
 
     # --- Affichage score ---
     # --- Barre de score ---
