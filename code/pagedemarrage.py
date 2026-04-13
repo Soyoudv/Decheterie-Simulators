@@ -4,7 +4,7 @@ from accueil import ecran_accueil
 
 
 def ecran_demarrage(surface, WIDTH, HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT, screen, clock):
-    val = ecran_accueil(surface, WIDTH, HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT, screen, clock)
+    val = ecran_accueil( WIDTH, HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT, screen, clock)
     if val == 1:
         font_title = pygame.font.Font(None, 80)
         font_text = pygame.font.Font(None, 40)

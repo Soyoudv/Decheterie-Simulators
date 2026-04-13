@@ -2,58 +2,84 @@
 # demarrage.py
 import pygame, sys
 
-
-def ecran_accueil(surface, WIDTH, HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT, screen, clock):
+def ecran_accueil(WIDTH, HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT, screen, clock):
     font_title = pygame.font.Font(None, 80)
-
-    font_fonct = pygame.font.Font(None, 25)
-    surface = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-
-    # --- Logo carré ---
-    carre = pygame.image.load("image/LenulAgglo.png").convert()
-    carre= pygame.transform.scale(carre, (150, 150))
-    # --- Logo rond ---
-    rond = pygame.image.load("image/LenulAggloRond.png").convert()
-    rond= pygame.transform.scale(rond, (200, 200))
+    font_fonct = pygame.font.Font(None, 35)
     
+
+    game_surface = pygame.Surface((WIDTH, HEIGHT))
+
+    carre = pygame.transform.scale(
+        pygame.image.load("image/LenulAgglo.png").convert(),
+        (150, 150)
+    )
+
+    rond = pygame.transform.scale(
+        pygame.image.load("image/LenulAggloRond.png").convert(),
+        (200, 200)
+    )
 
     running_start = True
+
     while running_start:
-        ### PARTIE AFFICHAGE JEU###
+        game_surface.fill((50, 150, 200))
 
-
-
-        surface.fill((50, 150, 200))
-        surface.blit(carre, (160,60))
-
-        # --- Titre ---
-        titre = font_title.render("Décheterie Simulator", True, (255, 255, 255))
-        surface.blit(titre, (WIDTH//2 - titre.get_width()//2, HEIGHT//5))
+        game_surface.blit(carre, (160,60))
 
         fonctionnement = font_fonct.render("Vous incarnez un agent qui découvre la nouvelle déchetterie de Telleville, gérée par Lenul Agglo.",True,(255, 255, 255))
-        surface.blit(fonctionnement, (50 , 300 - fonctionnement.get_height()//2))
+        game_surface.blit(fonctionnement, (50 , 500 - fonctionnement.get_height()//2))
 
         fonctionnement2 = font_fonct.render("Votre objectif est d’aider les visiteurs à trier correctement leurs déchets. Pour cela :",True,(255, 255, 255))
-        surface.blit(fonctionnement2, (50 , 325 - fonctionnement2.get_height()//2))
+        game_surface.blit(fonctionnement2, (50 , 525 - fonctionnement2.get_height()//2))
 
         fonctionnement3 = font_fonct.render("- Vous devrez vider les voitures des visiteurs.",True,(255, 255, 255))
-        surface.blit(fonctionnement3, (70 , 350 - fonctionnement3.get_height()//2))
+        game_surface.blit(fonctionnement3, (70 , 550 - fonctionnement3.get_height()//2))
 
         fonctionnement4 = font_fonct.render("- Placer les déchets dans les bonnes bennes rapporte des points.",True,(255, 255, 255))
-        surface.blit(fonctionnement4, (70 , 375 - fonctionnement4.get_height()//2))
+        game_surface.blit(fonctionnement4, (70 , 575 - fonctionnement4.get_height()//2))
 
         fonctionnement5 = font_fonct.render("- Se tromper vous fait perdre des points.",True,(255, 255, 255))
-        surface.blit(fonctionnement5, (70 , 400 - fonctionnement5.get_height()//2))
+        game_surface.blit(fonctionnement5, (70 , 600 - fonctionnement5.get_height()//2))
+
+        # souris en coords logiques
+        mouse_x, mouse_y = pygame.mouse.get_pos()
+        mouse_x *= WIDTH / SCREEN_WIDTH
+        mouse_y *= HEIGHT / SCREEN_HEIGHT
+        mouse_pos = (mouse_x, mouse_y)
+
+        titre = font_title.render("Décheterie Simulator", True, (255, 255, 255))
+        game_surface.blit(titre, (WIDTH//2 - titre.get_width()//2, HEIGHT//5))
+
+        bouton_jouer = pygame.Rect(WIDTH//2 - 100, HEIGHT//2-200, 200, 60)
+
+        couleur = (0, 255, 0) if bouton_jouer.collidepoint(mouse_pos) else (0, 200, 0)
+
+        pygame.draw.rect(game_surface, couleur, bouton_jouer, border_radius=10)
+
+        texte_bouton = font_fonct.render("JOUER", True, (255, 255, 255))
+        game_surface.blit(
+            texte_bouton,
+            (bouton_jouer.centerx - texte_bouton.get_width()//2,
+             bouton_jouer.centery - texte_bouton.get_height()//2)
+        )
+
+        # événements
         for event in pygame.event.get():
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_a:  # reprendre
-                    running_start= False
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                mx, my = event.pos
+                mx *= WIDTH / SCREEN_WIDTH
+                my *= HEIGHT / SCREEN_HEIGHT
+
+                if bouton_jouer.collidepoint((mx, my)):
                     return 1
 
-        scaled_surface = pygame.transform.scale(surface, (SCREEN_WIDTH, SCREEN_HEIGHT))
-        screen = pygame.display.get_surface()
-        screen.blit(scaled_surface, (0,0))
+        # scaling final vers écran
+        scaled = pygame.transform.scale(game_surface, (SCREEN_WIDTH, SCREEN_HEIGHT))
+        screen.blit(scaled, (0, 0))
+
         pygame.display.flip()
         clock.tick(60)
-
-    
