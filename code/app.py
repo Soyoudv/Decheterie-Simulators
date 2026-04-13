@@ -16,6 +16,7 @@ if (platform.system() == "Windows"):
     ctypes.windll.user32.SetProcessDPIAware()
 
 pygame.init()
+pygame.mixer.init()
 
 info = pygame.display.Info()
 SCREEN_WIDTH, SCREEN_HEIGHT = info.current_w, info.current_h-60
@@ -28,9 +29,51 @@ surface = pygame.Surface((WIDTH, HEIGHT))
 pygame.display.set_caption("Décheterie Simulateur")
 clock = pygame.time.Clock()
 
+# --- Audio --- #
+gameover = pygame.mixer.Sound("audio/gameover.mp3")
+
+moteur = pygame.mixer.Sound("audio/moteur.mp3")
+moteur.set_volume(0.5)# regler le soucis du bruit du moteur
+
+bip = pygame.mixer.Sound("audio/bipentree.mp3")
+
+correct = pygame.mixer.Sound("audio/correct.mp3")
+correct.set_volume(0.4)
+
+# --- Variables --- #
+
+voiture_width, voiture_height = 120, 110
+texte_visible = False
+compteur_aide = 0
+dejaAider = False
+compteur_dechet = 0
+Score_joueur = 0
+# --- Couleurs ---
+BLANC = (255, 255, 255)
+NOIR = (0, 0, 0)
+JAUNE = (255, 255, 0)
+GRIS = (128, 128, 128)
+BEIGE = (245, 245, 220)
+BLEU = (0, 0, 153)
+VOITURE_COLOR = (255,0,255)
+VERT = (0, 200, 0)
+ROUGE = (255, 0, 0)
+GRISCLAIR =(200, 200, 200)
+
+
+
+
+
+
 # --- Image ---
 image = pygame.image.load("image/Yannick.png").convert_alpha()
 image= pygame.transform.scale(image, (50, 50))
+
+voiture = pygame.image.load("image/voiture1.png").convert_alpha()
+voiture= pygame.transform.scale(voiture, (voiture_width, voiture_height))
+
+voiture2 = pygame.image.load("image/voiture2.png").convert_alpha()
+voiture2= pygame.transform.scale(voiture2, (voiture_width, voiture_height))
 
 # --- Logo carré ---
 carre = pygame.image.load("image/LenulAgglo.png").convert()
@@ -56,28 +99,10 @@ batimentpngrepos= pygame.transform.scale(batimentpngrepos, (220, 110))
 personnages_aide = [
     {"nom": "Agent Tri", "x": 700, "y": 500, "visible": False}  # apparaît via la salle de repos
 ]
-# --- Variables supplémentaire ---
-texte_visible = False
-compteur_aide = 0
-dejaAider = False
 
-compteur_dechet = 0
+# --- Choix Voiture ---
 
-# --- Couleurs ---
-BLANC = (255, 255, 255)
-NOIR = (0, 0, 0)
-JAUNE = (255, 255, 0)
-GRIS = (128, 128, 128)
-BEIGE = (245, 245, 220)
-BLEU = (0, 0, 153)
-VOITURE_COLOR = (255,0,255)
-VERT = (0, 200, 0)
-ROUGE = (255, 0, 0)
-GRISCLAIR =(200, 200, 200)
-ListeColVoiture = [BLANC, JAUNE, BEIGE, BLEU, VERT, ROUGE, VOITURE_COLOR]
-
-# --- Score ---
-Score_joueur = 0
+listevoiture = [voiture2,voiture]
 
 # --- Bennes ---
 benne_width, benne_height = 140, 60
@@ -126,10 +151,11 @@ batiments_cliquables = [
 ]
 taille_voiture = 0
 # --- Voiture ---
-voiture_width, voiture_height = 60, 30
+
 voiture_x, voiture_y = 0, 520
 voiture_vitesse = 2
-coleur = VOITURE_COLOR
+bipused = False
+choixvoiture = choice(listevoiture)
 
 # --- Mots draggables ---
 font_bulle = pygame.font.Font("fonts/arial.ttf", 17)
@@ -154,10 +180,12 @@ def trouver_categorie(objet, data):
 
 def nouvelle_voiture():
     """Réinitialise la voiture et génère de nouveaux déchets"""
-    global voiture_x, voiture_y, mots_rects, coleur
-    voiture_x, voiture_y = 0, 520
+    global voiture_x, voiture_y, mots_rects, choixvoiture, bipused
+    voiture_x, voiture_y = -70, 520
     mots_rects = []
-    coleur = choice(ListeColVoiture)
+    choixvoiture = choice(listevoiture)
+    bipused = False
+    
     for i in range(randint(2,4)):
         categorie = choice(list(data["dechets"].keys()))
         objet = choice(data["dechets"][categorie])
@@ -199,11 +227,17 @@ while running:
     # Déplacement voiture
     if any(not mot["placed"] for mot in mots_rects):
         # Si au quart de l'écran, s'arrête
+        if not bipused:
+            bip.play()
+            bipused = True
         if voiture_x < WIDTH/4:
             voiture_x += voiture_vitesse
             voiture_arretée = False
+            
         else:
             voiture_arretée = True
+            
+            
     else:
         # Voiture reprend son mouvement si tous les mots sont placés
         voiture_arretée = False
@@ -212,8 +246,8 @@ while running:
             texte_visible = False
         else:
             dejaAider = False
-            
             nouvelle_voiture()
+            moteur.play()
 
     # --- Sol et zones ---
     pygame.draw.rect(surface, GRISCLAIR, (0, 300, WIDTH, 550))
@@ -256,7 +290,8 @@ while running:
         pygame.draw.rect(surface, GRISCLAIR, batiment["rect"], 1)
 
     # --- Voiture ---
-    pygame.draw.rect(surface, coleur, (voiture_x, voiture_y, voiture_width, voiture_height))
+    surface.blit(choixvoiture,(voiture_x,voiture_y-35))
+    
     for p in personnages_aide:
         if p["nom"] == "Agent Tri" and p["visible"] and texte_visible:
             surface.blit(image, (p["x"] -20, p["y"]-50))
@@ -338,12 +373,14 @@ while running:
                             Score_joueur += 1
                             compteur_dechet +=1
                             texte_visible = False
+                            correct.play()
                             
                             
                         else:
                             dragging_mot["couleur"] = ROUGE
                             dragging_mot["placed"] = True
                             compteur_dechet +=1
+                            gameover.play()
                             
 
                         break
