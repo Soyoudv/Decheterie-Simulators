@@ -132,7 +132,7 @@ voiture_vitesse = 2
 coleur = VOITURE_COLOR
 
 # --- Mots draggables ---
-font_bulle = pygame.font.Font("fonts/arial.ttf", 15)
+font_bulle = pygame.font.Font("fonts/arial.ttf", 17)
 mots_rects = []
 
 
@@ -193,7 +193,7 @@ while running:
     taille_voiture = len(mots_rects)
 
 
-    font = pygame.font.Font("fonts/arial.ttf", 15)
+    font = pygame.font.Font("fonts/arial.ttf", 18)
 
     # --- Déplacement voiture ---
     # Déplacement voiture
@@ -275,7 +275,7 @@ while running:
             
     # --- Bulle et mots draggables ---
     if voiture_arretée and any(not mot["placed"] for mot in mots_rects):
-        bulle_width, bulle_height = 200, max(80, len(mots_rects)*25)
+        bulle_width, bulle_height = 200, max(50, len(mots_rects)*30)
         bulle_x = voiture_x + voiture_width + 10
         bulle_y = voiture_y - 20
         pygame.draw.rect(surface, BLANC, (bulle_x, bulle_y, bulle_width, bulle_height), border_radius=10)
@@ -284,7 +284,7 @@ while running:
         for j, mot in enumerate(mots_rects):
             # ⚡ Position initiale seulement si jamais définie
             if mot["rect"].topleft == (0,0):
-                mot["rect"].topleft = (bulle_x + 10, bulle_y + 10 + j*25)
+                mot["rect"].topleft = (bulle_x + 10, bulle_y + 10 + j*27)
             # Mettre à jour la couleur si changée
             mot["surface"] = font_bulle.render(mot["mot"], True, mot["couleur"])
             surface.blit(mot["surface"], mot["rect"])
