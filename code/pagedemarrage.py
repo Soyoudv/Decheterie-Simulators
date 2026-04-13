@@ -6,10 +6,10 @@ from accueil import ecran_accueil
 def ecran_demarrage(surface, WIDTH, HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT, screen, clock):
     val = ecran_accueil( WIDTH, HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT, screen, clock)
     if val == 1:
-        font_title = pygame.font.Font(None, 80)
-        font_text = pygame.font.Font(None, 40)
-        font_small = pygame.font.Font(None, 30)
-        surface = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+        font_title = pygame.font.Font("fonts/arial.ttf", 80)
+        font_text = pygame.font.Font("fonts/arial.ttf", 40)
+        font_small = pygame.font.Font("fonts/arial.ttf", 30)
+        
 
         # --- Logo carré ---
         carre = pygame.image.load("image/LenulAgglo.png").convert()
@@ -25,10 +25,6 @@ def ecran_demarrage(surface, WIDTH, HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT, screen,
 
         running_start = True
         while running_start:
-    
-
-
-
             surface.fill((50, 150, 200))
             surface.blit(carre, (160,60))
 
