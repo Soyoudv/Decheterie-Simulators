@@ -40,6 +40,10 @@ bip = pygame.mixer.Sound("audio/bipentree.mp3")
 correct = pygame.mixer.Sound("audio/correct.mp3")
 correct.set_volume(0.4)
 
+fond = pygame.mixer.Sound("audio/fond.mp3")
+fond.set_volume(0.2)
+fond.play(-1)
+
 # --- Variables --- #
 
 voiture_width, voiture_height = 120, 110
@@ -95,7 +99,6 @@ batimentpngrepos = pygame.image.load("image/batiment.png").convert_alpha()
 batimentpngrepos= pygame.transform.scale(batimentpngrepos, (220, 110))
 
 # --- Gardien ---
-#personnes = ["Audrey","SuperVégéto","Anguille","Gipsy","Herbi"]
 personnages_aide = [
     {"nom": "Agent Tri", "x": 700, "y": 500, "visible": False}  # apparaît via la salle de repos
 ]
@@ -310,7 +313,7 @@ while running:
             
     # --- Bulle et mots draggables ---
     if voiture_arretée and any(not mot["placed"] for mot in mots_rects):
-        bulle_width, bulle_height = 200, max(50, len(mots_rects)*30)
+        bulle_width, bulle_height = 250, max(50, len(mots_rects)*30)
         bulle_x = voiture_x + voiture_width + 10
         bulle_y = voiture_y - 20
         pygame.draw.rect(surface, BLANC, (bulle_x, bulle_y, bulle_width, bulle_height), border_radius=10)
