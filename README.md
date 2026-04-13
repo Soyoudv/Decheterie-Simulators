@@ -1,9 +1,11 @@
 ## Décheterie Simulators
-<p align="center">
+<p align="center">  
+  <img src="image/accueil.PNG" width="600px">
   <img src="image/demarrage.PNG" width="300px">
   <img src="image/jeu.PNG" width="300px"><br><br>
   <img src="image/pause.PNG" width="300px">
   <img src="image/fin.PNG" width="300px">
+  
 </p>
 
 DéchetSimulators est un jeu/simulation interactif développé en Python avec Pygame. Il permet de visualiser une déchetterie, d’interagir avec des bennes, des conteneurs et des bâtiments, et de simuler l’arrivée d’une voiture avec affichage de bulles d’informations sur les déchets.
