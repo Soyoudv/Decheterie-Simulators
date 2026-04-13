@@ -68,7 +68,6 @@
             "Polystyrene extrude"
         ],
         "Cartons": [
-            "Carton de demenagement",
             "Carton d'emballage",
             "Cartons"
         ],
@@ -91,8 +90,10 @@
         "Pile/Ampoule/Neon": [
             "Pile AA",
             "Pile AAA",
+            "Battery lithium",
             "Pile Bouton",
             "Ampoule LED",
+            "Ampoule halogène",
             "Tube neon"
         ],
         "Article de Sport": [
@@ -100,7 +101,7 @@
             "Ballon de basketball",
             "Raquette",
             "Skateboard",
-            "Matelas Gonfable de piscine",
+            "Matelas Gonfable piscine",
             "Piscine pour enfant",
             "Pneu velo"
         ],
@@ -125,6 +126,16 @@
             "Notice",
             "Magazine"
         ],
+        "Jouets":[
+            "Peluche",
+            "Maison de poupee",
+            "Camion de police",
+            "Poupee",
+            "Barbie",
+            "Playmobil",
+            "Lego",
+            "Camion de Pompier"
+        ],
         "DDS": [
             "Produit chimique",
             "Bombe de Peinture",
@@ -136,7 +147,7 @@
             "Cartouche de silicone",
             "Cartouche de Mastique",
             "Produit de jardinage",
-            "Dégripants"
+            "Degripants"
         ]
     }
 }

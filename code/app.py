@@ -184,7 +184,8 @@ choixvoiture = choice(listevoiture)
 font_bulle = pygame.font.Font("fonts/arial.ttf", 17)
 mots_rects = []
 
-
+def collision_avec_padding(rect1, rect2, padding=20):
+    return rect1.inflate(padding, padding).colliderect(rect2)
 # Fonction pour couleur arc-en-ciel selon score
 def couleur_arc_en_ciel(score, max_score):
     import math
@@ -388,7 +389,7 @@ while running:
 
                 # --- Bennes ---
                 for cible in bennes + conteneurs_noirs + batiments_cliquables:
-                    if dragging_mot["rect"].colliderect(cible["rect"]):
+                    if collision_avec_padding(dragging_mot["rect"], cible["rect"]):
 
                         if dragging_mot["categorie"] == cible["nom"]:
                             dragging_mot["couleur"] = VERT
