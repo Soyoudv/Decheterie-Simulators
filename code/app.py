@@ -78,6 +78,23 @@ voiture= pygame.transform.scale(voiture, (voiture_width, voiture_height))
 
 voiture2 = pygame.image.load("image/Voiture/voiture2.png").convert_alpha()
 voiture2= pygame.transform.scale(voiture2, (voiture_width, voiture_height))
+"""
+
+voiture3 = pygame.image.load("image/Voiture/voiture3.png").convert_alpha()
+voiture3= pygame.transform.scale(voiture3, (voiture_width, voiture_height))
+
+voiture4 = pygame.image.load("image/Voiture/voiture4.png").convert_alpha()
+voiture4= pygame.transform.scale(voiture4, (voiture_width, voiture_height))
+
+voiture5 = pygame.image.load("image/Voiture/voiture5.png").convert_alpha()
+voiture5= pygame.transform.scale(voiture5, (voiture_width, voiture_height))
+
+voiture6 = pygame.image.load("image/Voiture/voiture6.png").convert_alpha()
+voiture6= pygame.transform.scale(voiture6, (voiture_width, voiture_height))
+
+voiture7 = pygame.image.load("image/Voiture/voiture7.png").convert_alpha()
+voiture7= pygame.transform.scale(voiture7, (voiture_width, voiture_height))
+"""
 
 # --- Logo carré ---
 carre = pygame.image.load("image/Logo/LenulAgglo.png").convert()
@@ -108,7 +125,8 @@ personnages_aide = [
 ]
 
 # --- Choix Voiture ---
-
+#,voiture3,voiture4,voiture5,voiture6,voiture7
+#attente de voiture
 listevoiture = [voiture2,voiture]
 
 # --- Bennes ---
