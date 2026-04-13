@@ -33,10 +33,10 @@ image = pygame.image.load("image/Yannick.png").convert_alpha()
 image= pygame.transform.scale(image, (50, 50))
 
 # --- Logo carré ---
-carre = pygame.image.load("image/LundiAgglo.png").convert()
+carre = pygame.image.load("image/LenulAgglo.png").convert()
 carre= pygame.transform.scale(carre, (150, 150))
 # --- Logo rond ---
-rond = pygame.image.load("image/LundiAggloRond.png").convert()
+rond = pygame.image.load("image/LenulAggloRond.png").convert()
 rond= pygame.transform.scale(rond, (200, 200))
 
 conteneurs = pygame.image.load("image/conteneur_maritime.png").convert_alpha()
@@ -260,7 +260,7 @@ while running:
     for p in personnages_aide:
         if p["nom"] == "Agent Tri" and p["visible"] and texte_visible:
             surface.blit(image, (p["x"] -20, p["y"]-50))
-            advice = "Ah je vois que vous avez besoin d'aide !!!!\n"
+            advice = "Ah je vois que vous avez besoin d'aide !\n"
             if "dernier_objet" in p:
                 advice += f"{p['dernier_objet']}"
                 benne_aide = trouver_categorie(p['dernier_objet'],data)
@@ -288,6 +288,7 @@ while running:
             # Mettre à jour la couleur si changée
             mot["surface"] = font_bulle.render(mot["mot"], True, mot["couleur"])
             surface.blit(mot["surface"], mot["rect"])
+            pygame.draw.rect(surface, NOIR, (mot["rect"].x-5, mot["rect"].y-4, 180, 20), 2, border_radius=10)
 
     # --- Événements ---
     for event in pygame.event.get():
@@ -371,7 +372,7 @@ while running:
     score_surf = font.render(f"Score : {Score_joueur}", True, NOIR)
     surface.blit(score_surf, (WIDTH//2 -10, 150))
     font2 = pygame.font.Font(None, 50)
-    score2_surf = font2.render("Bienvenue dans la decheterie de Telleville géré par Lundi Agglo", True, NOIR)
+    score2_surf = font2.render("Bienvenue dans la decheterie de Telleville géré par Lenul Agglo", True, NOIR)
     surface.blit(score2_surf, (WIDTH//2 - score2_surf.get_width()//2, 50))
     # --- Affichage final ---
     scaled_surface = pygame.transform.scale(surface, (SCREEN_WIDTH, SCREEN_HEIGHT))
