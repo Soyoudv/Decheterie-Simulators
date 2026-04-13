@@ -78,11 +78,11 @@ voiture= pygame.transform.scale(voiture, (voiture_width, voiture_height))
 
 voiture2 = pygame.image.load("image/Voiture/voiture2.png").convert_alpha()
 voiture2= pygame.transform.scale(voiture2, (voiture_width, voiture_height))
-"""
 
 voiture3 = pygame.image.load("image/Voiture/voiture3.png").convert_alpha()
 voiture3= pygame.transform.scale(voiture3, (voiture_width, voiture_height))
 
+"""
 voiture4 = pygame.image.load("image/Voiture/voiture4.png").convert_alpha()
 voiture4= pygame.transform.scale(voiture4, (voiture_width, voiture_height))
 
@@ -125,9 +125,9 @@ personnages_aide = [
 ]
 
 # --- Choix Voiture ---
-#,voiture3,voiture4,voiture5,voiture6,voiture7
+#,voiture4,voiture5,voiture6,voiture7
 #attente de voiture
-listevoiture = [voiture2,voiture]
+listevoiture = [voiture2,voiture,voiture3]
 
 # --- Bennes ---
 
