@@ -46,9 +46,10 @@ Au lancement du jeu, vous pouvez choisir parmi 4 modes de difficulté :
 - Moyen
 - Difficile
 - Personnalisé
-
+---
 Pour les trois premiers modes, le score maximum est prédéfini.
 Le mode personnalisé vous permet de choisir vous-même le score maximum que vous souhaitez atteindre.
+---
 ---
 ## Page de pause
 
