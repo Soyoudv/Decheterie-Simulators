@@ -1,5 +1,4 @@
 # en attente surement supprimé
-# demarrage.py
 import pygame, sys
 
 def ecran_accueil(WIDTH, HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT, screen, clock):
@@ -17,6 +16,7 @@ def ecran_accueil(WIDTH, HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT, screen, clock):
         pygame.image.load("image/LenulAggloRond.png").convert(),
         (200, 200)
     )
+    clic_button = pygame.mixer.Sound("audio/selectbutton.mp3")
 
     running_start = True
 
@@ -25,20 +25,18 @@ def ecran_accueil(WIDTH, HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT, screen, clock):
 
         game_surface.blit(carre, (160,60))
 
-        fonctionnement = font_fonct.render("Vous incarnez un agent qui découvre la nouvelle déchetterie de Telleville, gérée par Lenul Agglo.",True,(255, 255, 255))
-        game_surface.blit(fonctionnement, (50 , 500 - fonctionnement.get_height()//2))
 
-        fonctionnement2 = font_fonct.render("Votre objectif est d’aider les visiteurs à trier correctement leurs déchets. Pour cela :",True,(255, 255, 255))
-        game_surface.blit(fonctionnement2, (50 , 535 - fonctionnement2.get_height()//2))
+        textes = [
+            ("Vous incarnez un agent qui découvre la nouvelle déchetterie de Telleville, gérée par Lenul Agglo.", 50, 500),
+            ("Votre objectif est d’aider les visiteurs à trier correctement leurs déchets. Pour cela :", 50, 535),
+            ("- Vous devrez vider les voitures des visiteurs.", 70, 570),
+            ("- Placer les déchets dans les bonnes bennes rapporte des points.", 70, 605),
+            ("- Se tromper vous fait perdre des points.", 70, 640)
+        ]
 
-        fonctionnement3 = font_fonct.render("- Vous devrez vider les voitures des visiteurs.",True,(255, 255, 255))
-        game_surface.blit(fonctionnement3, (70 , 570 - fonctionnement3.get_height()//2))
-
-        fonctionnement4 = font_fonct.render("- Placer les déchets dans les bonnes bennes rapporte des points.",True,(255, 255, 255))
-        game_surface.blit(fonctionnement4, (70 , 605 - fonctionnement4.get_height()//2))
-
-        fonctionnement5 = font_fonct.render("- Se tromper vous fait perdre des points.",True,(255, 255, 255))
-        game_surface.blit(fonctionnement5, (70 , 640 - fonctionnement5.get_height()//2))
+        for texte, x, y in textes:
+            surface = font_fonct.render(texte, True, (255, 255, 255))
+            game_surface.blit(surface, (x, y - surface.get_height() // 2))
 
         # souris en coords logiques
         mouse_x, mouse_y = pygame.mouse.get_pos()
@@ -74,6 +72,7 @@ def ecran_accueil(WIDTH, HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT, screen, clock):
                 my *= HEIGHT / SCREEN_HEIGHT
 
                 if bouton_jouer.collidepoint((mx, my)):
+                    clic_button.play()
                     return 1
 
         # scaling final vers écran
