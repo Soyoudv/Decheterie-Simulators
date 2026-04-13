@@ -4,9 +4,9 @@ import pygame, sys
 
 
 def page_fin(surface, WIDTH, HEIGHT, Score_joueur, nbdechets, SCREEN_WIDTH, SCREEN_HEIGHT, screen, clock):
-    font_title = pygame.font.Font(None, 80)
-    font_text = pygame.font.Font(None, 40)
-    surface = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    font_title = pygame.font.Font("fonts/arial.ttf", 80)
+    font_text = pygame.font.Font("fonts/arial.ttf", 40)
+    
     # --- Logo carré ---
     carre = pygame.image.load("image/LenulAgglo.png").convert()
     carre= pygame.transform.scale(carre, (150, 150))
@@ -53,12 +53,6 @@ def page_fin(surface, WIDTH, HEIGHT, Score_joueur, nbdechets, SCREEN_WIDTH, SCRE
                 elif event.key == pygame.K_q:  # quitter
                     pygame.quit()
                     sys.exit()
-
-        # Effet scintillant simple sur le titre
-        if pygame.time.get_ticks() % 1000 < 500:
-            titre_flash = font_title.render("🎉", True, (255, 255, 255))
-            surface.blit(titre_flash, (WIDTH//2 - 40, HEIGHT//4 - 50))
-
         # Affichage final
         scaled_surface = pygame.transform.scale(surface, (SCREEN_WIDTH, SCREEN_HEIGHT))
         screen.blit(scaled_surface, (0, 0))
