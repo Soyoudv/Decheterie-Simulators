@@ -106,19 +106,23 @@
         ],
         "Pneu": [
             "Pneu voiture",
+            "Pneu moto",
             "Pneu camion"
         ],
         "Verre": [
             "Bouteille en verre",
-            "Bouteille de Biere/Vins/Champagne",
+            "Bouteille de Biere",
+            "Bouteille de Vins",
             "Pots de Confiture",
-
+            "Bouteille de Champagne",
             "Bocal en verre"
         ],
         "Papier": [
             "Feuille de papier",
             "Journal",
             "Livre",
+            "Cahier",
+            "Notice",
             "Magazine"
         ],
         "DDS": [
@@ -131,7 +135,8 @@
             "Bombe anticrevaison",
             "Cartouche de silicone",
             "Cartouche de Mastique",
-            "Produit de jardinage"
+            "Produit de jardinage",
+            "Dégripants"
         ]
     }
 }
