@@ -30,7 +30,7 @@ pip install pygame
 ---
 ## Fonctionnement du jeu
 
-Vous incarnez un joueur qui découvre la nouvelle déchetterie de Telleville, gérée par Lundi Agglo. Votre objectif est d’aider les visiteurs à trier correctement leurs déchets. Pour cela :
+Vous incarnez un joueur qui découvre la nouvelle déchetterie de Telleville, gérée par Lenul Agglo. Votre objectif est d’aider les visiteurs à trier correctement leurs déchets. Pour cela :
 
 - Vous devrez vider les voitures des visiteurs.
 - Placer les déchets dans les bonnes bennes rapporte des points.
