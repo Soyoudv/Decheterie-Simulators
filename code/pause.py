@@ -8,10 +8,10 @@ def menu_pause(surface, WIDTH, HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT, screen, cloc
     font_text = pygame.font.Font(None, 40)
     surface = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     # --- Logo carré ---
-    carre = pygame.image.load("image/LundiAgglo.png").convert()
+    carre = pygame.image.load("image/LenulAgglo.png").convert()
     carre= pygame.transform.scale(carre, (150, 150))
     # --- Logo rond ---
-    rond = pygame.image.load("image/LundiAggloRond.png").convert()
+    rond = pygame.image.load("image/LenulAggloRond.png").convert()
     rond= pygame.transform.scale(rond, (200, 200))
         
 
