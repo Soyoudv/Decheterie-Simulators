@@ -23,12 +23,21 @@ DéchetSimulators est un jeu/simulation interactif développé en Python avec Py
 ---
 ## 🛠 Installation
 
-1. Assurez-vous d’avoir **Python 3.11+** installé sur votre machine.  
-2. Installez **Pygame** si ce n’est pas déjà fait :  
+Vous pouvez jouer par deux manières différentes:
 
-```bash
-pip install pygame
-```
+  - Depuis un éditeur de code:
+  1. Assurez-vous d’avoir **Python 3.11+** installé sur votre machine.  
+  2. Installez **Pygame** si ce n’est pas déjà fait :  
+
+  ```bash
+  pip install pygame
+  ```
+  
+  - Depuis un exécutable téléchargeable depuis itch.io:
+    https://veroniquevospair.itch.io/decheterie-simulator
+
+Vous devez le télécharger puis le dézipper et ensuite lancer le fichier app.exe 
+
 ---
 ## Fonctionnement du jeu
 
@@ -80,3 +89,5 @@ Selon votre score final, vous êtes classé dans ce tableau :
 - Vert : Déchet correctement placé.
 - Bleu : Aide fournie par un agent.
 - Rouge : Déchet mal placé.
+
+
