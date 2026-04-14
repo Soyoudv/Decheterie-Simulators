@@ -223,20 +223,23 @@ def nouvelle_voiture():
     mots_rects = []
     choixvoiture = choice(listevoiture)
     bipused = False
+    i = randint(2,4)
     
-    for i in range(randint(2,4)):
+    while i!=0:
         categorie = choice(list(data["dechets"].keys()))
         objet = choice(data["dechets"][categorie])
-        surface_mot = font_bulle.render(objet, True, NOIR)
-        rect_mot = surface_mot.get_rect(topleft=(0,0))  # initialisation
-        mots_rects.append({
-            "mot": objet,
-            "categorie": categorie,
-            "rect": rect_mot,
-            "surface": surface_mot,
-            "couleur": NOIR,
-            "placed": False
-        })
+        if object not in [mot["mot"] for mot in mots_rects]:  # éviter les doublons
+            surface_mot = font_bulle.render(objet, True, NOIR)
+            rect_mot = surface_mot.get_rect(topleft=(0,0))
+            i-=1  # initialisation
+            mots_rects.append({
+                "mot": objet,
+                "categorie": categorie,
+                "rect": rect_mot,
+                "surface": surface_mot,
+                "couleur": NOIR,
+                "placed": False
+            })
 
 nouvelle_voiture()
 
