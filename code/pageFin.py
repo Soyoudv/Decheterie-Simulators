@@ -1,19 +1,25 @@
 # fin.py
-import pygame, sys
+import pygame, sys, os
 
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath("")
+    return os.path.join(base_path, relative_path)
 
 
 def page_fin(surface, WIDTH, HEIGHT, Score_joueur, nbdechets, SCREEN_WIDTH, SCREEN_HEIGHT, screen, clock):
-    font_title = pygame.font.Font("fonts/arial.ttf", 80)
-    font_text = pygame.font.Font("fonts/arial.ttf", 40)
+    font_title = pygame.font.Font(resource_path("fonts/arial.ttf"), 80)
+    font_text = pygame.font.Font(resource_path("fonts/arial.ttf"), 40)
     
     # --- Logo carré ---
-    carre = pygame.image.load("image/Logo/LenulAgglo.png").convert()
+    carre = pygame.image.load(resource_path("image/Logo/LenulAgglo.png")).convert()
     carre= pygame.transform.scale(carre, (150, 150))
     # --- Logo rond ---
-    rond = pygame.image.load("image/Logo/LenulAggloRond.png").convert()
+    rond = pygame.image.load(resource_path("image/Logo/LenulAggloRond.png")).convert()
     rond= pygame.transform.scale(rond, (200, 200))
-    winning = pygame.mixer.Sound("audio/winning.mp3")
+    winning = pygame.mixer.Sound(resource_path("audio/winning.mp3"))
     winning.set_volume(0.1)
     winning.play()
 

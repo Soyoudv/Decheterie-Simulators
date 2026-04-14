@@ -1,5 +1,11 @@
-import pygame
-import sys
+import sys,os,pygame
+
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath("")
+    return os.path.join(base_path, relative_path)
 
 def draw_button(surface, rect, text, font, mouse_pos):
     # Couleur selon survol
@@ -18,10 +24,10 @@ def draw_button(surface, rect, text, font, mouse_pos):
     ))
 
 def menu_pause(surface, WIDTH, HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT, screen, clock):
-    font_title = pygame.font.Font("fonts/arial.ttf", 80)
-    font_button = pygame.font.Font("fonts/arial.ttf", 40)
+    font_title = pygame.font.Font(resource_path("fonts/arial.ttf"), 80)
+    font_button = pygame.font.Font(resource_path("fonts/arial.ttf"), 40)
 
-    carre = pygame.image.load("image/Logo/LenulAgglo.png").convert()
+    carre = pygame.image.load(resource_path("image/Logo/LenulAgglo.png")).convert()
     carre = pygame.transform.scale(carre, (150, 150))
 
     # Boutons

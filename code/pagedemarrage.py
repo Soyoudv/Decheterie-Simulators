@@ -1,23 +1,29 @@
 # demarrage.py
-import pygame, sys
+import pygame, sys,os
 from accueil import ecran_accueil
 
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath("")
+    return os.path.join(base_path, relative_path)
 
 def ecran_demarrage(surface, WIDTH, HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT, screen, clock):
     val = ecran_accueil( WIDTH, HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT, screen, clock)
     if val == 1:
-        font_title = pygame.font.Font("fonts/arial.ttf", 80)
-        font_text = pygame.font.Font("fonts/arial.ttf", 40)
-        font_small = pygame.font.Font("fonts/arial.ttf", 30)
+        font_title = pygame.font.Font(resource_path("fonts/arial.ttf"), 80)
+        font_text = pygame.font.Font(resource_path("fonts/arial.ttf"), 40)
+        font_small = pygame.font.Font(resource_path("fonts/arial.ttf"), 30)
 
-        clic_button = pygame.mixer.Sound("audio/selectbutton.mp3")
+        clic_button = pygame.mixer.Sound(resource_path("audio/selectbutton.mp3"))
         
 
         # --- Logo carré ---
-        carre = pygame.image.load("image/Logo/LenulAgglo.png").convert()
+        carre = pygame.image.load(resource_path("image/Logo/LenulAgglo.png")).convert()
         carre= pygame.transform.scale(carre, (150, 150))
         # --- Logo rond ---
-        rond = pygame.image.load("image/Logo/LenulAggloRond.png").convert()
+        rond = pygame.image.load(resource_path("image/Logo/LenulAggloRond.png")).convert()
         rond= pygame.transform.scale(rond, (200, 200))
 
         score_max = 20

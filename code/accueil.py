@@ -1,22 +1,29 @@
 # en attente surement supprimé
-import pygame, sys
+import pygame, sys,os
+
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath("")
+    return os.path.join(base_path, relative_path)
 
 def ecran_accueil(WIDTH, HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT, screen, clock):
-    font_title = pygame.font.Font("fonts/arial.ttf", 80)
-    font_fonct = pygame.font.Font("fonts/arial.ttf", 30)
+    font_title = pygame.font.Font(resource_path("fonts/arial.ttf"), 80)
+    font_fonct = pygame.font.Font(resource_path("fonts/arial.ttf"), 30)
 
     game_surface = pygame.Surface((WIDTH, HEIGHT))
 
     carre = pygame.transform.scale(
-        pygame.image.load("image/Logo/LenulAgglo.png").convert(),
+        pygame.image.load(resource_path("image/Logo/LenulAgglo.png")).convert(),
         (150, 150)
     )
 
     rond = pygame.transform.scale(
-        pygame.image.load("image/Logo/LenulAggloRond.png").convert(),
+        pygame.image.load(resource_path("image/Logo/LenulAggloRond.png")).convert(),
         (200, 200)
     )
-    clic_button = pygame.mixer.Sound("audio/selectbutton.mp3")
+    clic_button = pygame.mixer.Sound(resource_path("audio/selectbutton.mp3"))
 
     running_start = True
 

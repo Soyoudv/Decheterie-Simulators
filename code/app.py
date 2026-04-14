@@ -1,15 +1,20 @@
-import pygame, json, ctypes, platform
+import pygame, json, ctypes, platform,os,sys
 from pagedemarrage import ecran_demarrage
 from pageFin import page_fin
 from pause import menu_pause
 from random import *
 
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath("")
+    return os.path.join(base_path, relative_path)
 
 
 # --- Récupérer les déchets ---
-with open("code/listeDechet.json", "r") as f:
+with open(resource_path("code/listeDechet.json"), "r", encoding="utf-8") as f:
     data = json.load(f)
-
 # --- Initialisation Pygame + scaling Windows ---
 
 if (platform.system() == "Windows"):
@@ -30,17 +35,17 @@ pygame.display.set_caption("Décheterie Simulateur")
 clock = pygame.time.Clock()
 
 # --- Audio --- #
-gameover = pygame.mixer.Sound("audio/gameover.mp3")
+gameover = pygame.mixer.Sound(resource_path("audio/gameover.mp3"))
 
-moteur = pygame.mixer.Sound("audio/moteur.mp3")
+moteur = pygame.mixer.Sound(resource_path("audio/moteur.mp3"))
 moteur.set_volume(0.5)# regler le soucis du bruit du moteur
 
-bip = pygame.mixer.Sound("audio/bipentree.mp3")
+bip = pygame.mixer.Sound(resource_path("audio/bipentree.mp3"))
 
-correct = pygame.mixer.Sound("audio/correct.mp3")
+correct = pygame.mixer.Sound(resource_path("audio/correct.mp3"))
 correct.set_volume(0.4)
 
-fond = pygame.mixer.Sound("audio/fond.mp3")
+fond = pygame.mixer.Sound(resource_path("audio/fond.mp3"))
 fond.set_volume(0.2)
 fond.play(-1)
 
@@ -72,65 +77,65 @@ GRISCLAIR =(200, 200, 200)
 
 
 # --- Image ---
-image = pygame.image.load("image/Agent/Yannick.png").convert_alpha()
+image = pygame.image.load(resource_path("image/Agent/Yannick.png")).convert_alpha()
 image= pygame.transform.scale(image, (50, 50))
 
-voiture = pygame.image.load("image/Voiture/voiture1.png").convert_alpha()
+voiture = pygame.image.load(resource_path("image/Voiture/voiture1.png")).convert_alpha()
 voiture= pygame.transform.scale(voiture, (voiture_width, voiture_height))
 
-voiture2 = pygame.image.load("image/Voiture/voiture2.png").convert_alpha()
+voiture2 = pygame.image.load(resource_path("image/Voiture/voiture2.png")).convert_alpha()
 voiture2= pygame.transform.scale(voiture2, (voiture_width, voiture_height))
 
-voiture3 = pygame.image.load("image/Voiture/voiture3.png").convert_alpha()
+voiture3 = pygame.image.load(resource_path("image/Voiture/voiture3.png")).convert_alpha()
 voiture3= pygame.transform.scale(voiture3, (voiture_width, voiture_height))
 
 """
-voiture4 = pygame.image.load("image/Voiture/voiture4.png").convert_alpha()
+voiture4 = pygame.image.load(resource_path("image/Voiture/voiture4.png")).convert_alpha()
 voiture4= pygame.transform.scale(voiture4, (voiture_width, voiture_height))
 
-voiture5 = pygame.image.load("image/Voiture/voiture5.png").convert_alpha()
+voiture5 = pygame.image.load(resource_path("image/Voiture/voiture5.png")).convert_alpha()
 voiture5= pygame.transform.scale(voiture5, (voiture_width, voiture_height))
 
-voiture6 = pygame.image.load("image/Voiture/voiture6.png").convert_alpha()
+voiture6 = pygame.image.load(resource_path("image/Voiture/voiture6.png")).convert_alpha()
 voiture6= pygame.transform.scale(voiture6, (voiture_width, voiture_height))
 
-voiture7 = pygame.image.load("image/Voiture/voiture7.png").convert_alpha()
+voiture7 = pygame.image.load(resource_path("image/Voiture/voiture7.png")).convert_alpha()
 voiture7= pygame.transform.scale(voiture7, (voiture_width, voiture_height))
 """
 
 # --- Logo carré ---
-carre = pygame.image.load("image/Logo/LenulAgglo.png").convert()
+carre = pygame.image.load(resource_path("image/Logo/LenulAgglo.png")).convert()
 carre= pygame.transform.scale(carre, (150, 150))
 # --- Logo rond ---
-rond = pygame.image.load("image/Logo/LenulAggloRond.png").convert()
+rond = pygame.image.load(resource_path("image/Logo/LenulAggloRond.png")).convert()
 rond= pygame.transform.scale(rond, (200, 200))
 
-conteneurs = pygame.image.load("image/Dessin/conteneur_maritime.png").convert_alpha()
+conteneurs = pygame.image.load(resource_path("image/Dessin/conteneur_maritime.png")).convert_alpha()
 conteneurs= pygame.transform.scale(conteneurs, (100, 100))
 
-conteneurs90 = pygame.image.load("image/Dessin/conteneur_maritime_sim_90.png").convert_alpha()
+conteneurs90 = pygame.image.load(resource_path("image/Dessin/conteneur_maritime_sim_90.png")).convert_alpha()
 conteneurs90= pygame.transform.scale(conteneurs90, (100, 100))
 
-batimentpng = pygame.image.load("image/Dessin/batiment.png").convert_alpha()
+batimentpng = pygame.image.load(resource_path("image/Dessin/batiment.png")).convert_alpha()
 batimentpng= pygame.transform.scale(batimentpng, (150, 110))
 
-batimentpngrepos = pygame.image.load("image/Dessin/batiment.png").convert_alpha()
+batimentpngrepos = pygame.image.load(resource_path("image/Dessin/batiment.png")).convert_alpha()
 batimentpngrepos= pygame.transform.scale(batimentpngrepos, (220, 110))
 
 benne_width, benne_height = 140, 60
-benne_img = pygame.image.load("image/Dessin/benne.png").convert_alpha()
+benne_img = pygame.image.load(resource_path("image/Dessin/benne.png")).convert_alpha()
 benne_img = pygame.transform.scale(benne_img, (benne_width, benne_height))
 
-poubellenoir = pygame.image.load("image/Dessin/poubelle.png").convert_alpha()
+poubellenoir = pygame.image.load(resource_path("image/Dessin/poubelle.png")).convert_alpha()
 poubellenoir = pygame.transform.scale(poubellenoir, (50, 25))
 
-poubellevert = pygame.image.load("image/Dessin/poubellevert.png").convert_alpha()
+poubellevert = pygame.image.load(resource_path("image/Dessin/poubellevert.png")).convert_alpha()
 poubellevert = pygame.transform.scale(poubellevert, (50, 25))
 
-poubellebleu = pygame.image.load("image/Dessin/poubellebleu.png").convert_alpha()
+poubellebleu = pygame.image.load(resource_path("image/Dessin/poubellebleu.png")).convert_alpha()
 poubellebleu = pygame.transform.scale(poubellebleu, (50, 25))
 
-poubellenoirR = pygame.image.load("image/Dessin/poubelleR.png").convert_alpha()
+poubellenoirR = pygame.image.load(resource_path("image/Dessin/poubelleR.png")).convert_alpha()
 poubellenoirR = pygame.transform.scale(poubellenoirR, (25, 50))
 
 # --- Gardien ---
@@ -204,7 +209,7 @@ bipused = False
 choixvoiture = choice(listevoiture)
 
 # --- Mots draggables ---
-font_bulle = pygame.font.Font("fonts/arial.ttf", 17)
+font_bulle = pygame.font.Font(resource_path("fonts/arial.ttf"), 17)
 mots_rects = []
 
 def collision_avec_padding(rect1, rect2, padding=20):
@@ -318,22 +323,7 @@ while running:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    font = pygame.font.Font("fonts/arial.ttf", 18)
+    font = pygame.font.Font(resource_path("fonts/arial.ttf"), 18)
 
     # --- Déplacement voiture ---
     # Déplacement voiture
@@ -525,7 +515,7 @@ while running:
     pygame.draw.rect(surface, NOIR, (barre_x, barre_y, barre_width, barre_height), 3)
     score_surf = font.render(f"Score : {Score_joueur}", True, NOIR)
     surface.blit(score_surf, (WIDTH//2 -10, 150))
-    font2 = pygame.font.Font("fonts/arial.ttf", 50)
+    font2 = pygame.font.Font(resource_path("fonts/arial.ttf"), 50)
     score2_surf = font2.render("Bienvenue dans la decheterie de Telleville géré par Lenul Agglo", True, NOIR)
     surface.blit(score2_surf, (WIDTH//2 - score2_surf.get_width()//2, 20))
     # --- Affichage final ---
