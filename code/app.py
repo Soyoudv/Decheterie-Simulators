@@ -162,7 +162,7 @@ conteneurs_noirs = [
     {"rect": pygame.Rect(1330, 470, 40, 10), "nom": "Pneu"},
     {"rect": pygame.Rect(1280, 350, 10, 80), "nom": "Article de Sport"},
     {"rect": pygame.Rect(WIDTH-100, 320, 40, 10), "nom": "Verre"},
-    {"rect": pygame.Rect(WIDTH-100, 350, 40, 10), "nom": "Papier"},
+    {"rect": pygame.Rect(WIDTH-100, 400, 40, 10), "nom": "Papier"},
 ]
 
 # --- Bâtiments cliquables ---
@@ -293,7 +293,7 @@ while running:
 
     # --- Textes ---
     texte = ["Entree","Loge","Emmaus","DDS","Salle de repos","Sortie","Pneu","Bidons","Huile","Pile/Ampoule/Neon","Jouets","Verre","Papier"]
-    pos_texte = [[50,450],[25,330],[350,330],[500,330],[700,330],[WIDTH-50,450],[1350,460],[880,310],[980,310],[1110,310],[1240,310],[WIDTH-80,310],[WIDTH-80,340]]
+    pos_texte = [[50,450],[25,330],[350,330],[500,330],[700,330],[WIDTH-50,450],[1350,460],[880,310],[980,310],[1110,310],[1240,310],[WIDTH-80,310],[WIDTH-80,390]]
     for i in range(len(texte)):
         text_surface = font.render(texte[i], True, NOIR)
         text_rect = text_surface.get_rect(center=(pos_texte[i][0], pos_texte[i][1]))
