@@ -53,6 +53,8 @@ dejaAider = False
 compteur_dechet = 0
 Score_joueur = 0
 # --- Couleurs ---
+BLEUFONCE = (0, 0, 100)
+VERTFONCE = (0, 100, 0)
 BLANC = (255, 255, 255)
 NOIR = (0, 0, 0)
 JAUNE = (255, 255, 0)
@@ -119,6 +121,18 @@ benne_width, benne_height = 140, 60
 benne_img = pygame.image.load("image/Dessin/benne.png").convert_alpha()
 benne_img = pygame.transform.scale(benne_img, (benne_width, benne_height))
 
+poubellenoir = pygame.image.load("image/Dessin/poubelle.png").convert_alpha()
+poubellenoir = pygame.transform.scale(poubellenoir, (50, 25))
+
+poubellevert = pygame.image.load("image/Dessin/poubellevert.png").convert_alpha()
+poubellevert = pygame.transform.scale(poubellevert, (50, 25))
+
+poubellebleu = pygame.image.load("image/Dessin/poubellebleu.png").convert_alpha()
+poubellebleu = pygame.transform.scale(poubellebleu, (50, 25))
+
+poubellenoirR = pygame.image.load("image/Dessin/poubelleR.png").convert_alpha()
+poubellenoirR = pygame.transform.scale(poubellenoirR, (25, 50))
+
 # --- Gardien ---
 personnages_aide = [
     {"nom": "Agent Tri", "x": 700, "y": 500, "visible": False}  # apparaît via la salle de repos
@@ -155,14 +169,14 @@ for i, (x, y) in enumerate(positions_bennes):
 
 # --- Conteneurs noirs ---
 conteneurs_noirs = [
-    {"rect": pygame.Rect(860, 320, 40, 10), "nom": "Bidons"},
-    {"rect": pygame.Rect(960, 320, 40, 10), "nom": "Huile"},
-    {"rect": pygame.Rect(1090, 320, 40, 10), "nom": "Pile/Ampoule/Neon"},
-    {"rect": pygame.Rect(1220, 320, 40, 10), "nom": "Jouets"},
-    {"rect": pygame.Rect(1330, 470, 40, 10), "nom": "Pneu"},
-    {"rect": pygame.Rect(1280, 350, 10, 80), "nom": "Article de Sport"},
-    {"rect": pygame.Rect(WIDTH-100, 320, 40, 10), "nom": "Verre"},
-    {"rect": pygame.Rect(WIDTH-100, 400, 40, 10), "nom": "Papier"},
+    {"rect": pygame.Rect(855, 315, 40, 10), "nom": "Bidons"},
+    {"rect": pygame.Rect(955, 315, 40, 10), "nom": "Huile"},
+    {"rect": pygame.Rect(1085, 315, 40, 10), "nom": "Pile/Ampoule/Neon"},
+    {"rect": pygame.Rect(1215, 315, 40, 10), "nom": "Jouets"},
+    {"rect": pygame.Rect(1325, 465, 40, 10), "nom": "Pneu"},
+    {"rect": pygame.Rect(1275, 360, 10, 80), "nom": "Article de Sport"},
+    {"rect": pygame.Rect(WIDTH-103, 320, 40, 10), "nom": "Verre"},
+    {"rect": pygame.Rect(WIDTH-105, 400, 40, 10), "nom": "Papier"},
 ]
 
 # --- Bâtiments cliquables ---
@@ -289,7 +303,14 @@ while running:
     surface.blit(batimentpngrepos, (580,300))
     # --- Conteneurs noirs ---
     for conteneur in conteneurs_noirs:
-        pygame.draw.rect(surface, NOIR, conteneur["rect"])
+        if conteneur["nom"] in ["Papier"]:
+            surface.blit(poubellebleu, conteneur["rect"].topleft)
+        elif conteneur["nom"] in ["Verre"]:
+            surface.blit(poubellevert, conteneur["rect"].topleft)
+        elif conteneur["nom"] in ["Article de Sport"]:
+            surface.blit(poubellenoirR, conteneur["rect"].topleft)
+        else:
+            surface.blit(poubellenoir, conteneur["rect"].topleft)
 
     # --- Textes ---
     texte = ["Entree","Loge","Emmaus","DDS","Salle de repos","Sortie","Pneu","Bidons","Huile","Pile/Ampoule/Neon","Jouets","Verre","Papier"]
