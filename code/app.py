@@ -260,6 +260,45 @@ while running:
         menu_pause(surface, 1800, 1000, SCREEN_WIDTH, SCREEN_HEIGHT, screen, clock)
     surface.fill(BLANC)
     taille_voiture = len(mots_rects)
+    
+    pygame.draw.rect(surface, (80,160,80), (0, 0, WIDTH, 300))
+    for i in range(0, WIDTH, 40):
+        pygame.draw.rect(surface, (120,120,120), (i,170, 5, 30))
+    pygame.draw.line(surface, (120,120,120), (0, 170), (WIDTH, 170), 4)
+    pygame.draw.line(surface, (120,120,120), (0, 185), (WIDTH, 185), 2)
+
+
+    pygame.draw.rect(surface, (80,160,80), (0, 620, WIDTH, HEIGHT-620))
+    pygame.draw.rect(surface, (135,206,235), (0, 0, WIDTH, 150))
+    pygame.draw.rect(surface, GRISCLAIR, (0, 300, WIDTH, 550))
+    pygame.draw.rect(surface, (90,90,90), (0, 500, WIDTH, 200))
+
+    y_grillage = HEIGHT -50
+
+    for i in range(0, WIDTH, 40):
+        pygame.draw.rect(surface, (120,120,120), (i, y_grillage, 5, 30))
+
+    # barre horizontale
+    pygame.draw.line(surface, (120,120,120), (0, y_grillage), (WIDTH, y_grillage), 4)
+    pygame.draw.line(surface, (120,120,120), (0, y_grillage+15), (WIDTH, y_grillage+15), 2)
+
+    
+    for i in range(0, WIDTH, 80):
+        pygame.draw.rect(surface, (255,255,255), (i, 590, 40, 5))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     font = pygame.font.Font("fonts/arial.ttf", 18)
@@ -291,9 +330,7 @@ while running:
             moteur.play()
 
     # --- Sol et zones ---
-    pygame.draw.rect(surface, GRISCLAIR, (0, 300, WIDTH, 550))
-    pygame.draw.rect(surface, GRIS, (0, 500, WIDTH, 200))
-    pygame.draw.rect(surface, BLANC, (0, 590, WIDTH, 20))
+    
     pygame.draw.rect(surface, BEIGE, (0, 310, 50, 50))
     #pygame.draw.rect(surface, BEIGE, (300, 310, 500, 80))
     surface.blit(carre, (10,60))
