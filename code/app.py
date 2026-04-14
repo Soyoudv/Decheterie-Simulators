@@ -166,6 +166,15 @@ for i, (x, y) in enumerate(positions_bennes):
         "surf": benne_tournee
     })
 
+# --- Décor fixe ---
+herbes_haut = [(randint(0, WIDTH), randint(155, 300)) for _ in range(150)]
+herbes_bas = [(randint(0, WIDTH), randint(860, HEIGHT)) for _ in range(150)]
+
+fleurs = [(randint(0, WIDTH), randint(150, 300)) for _ in range(30)]
+cailloux = [(randint(0, WIDTH), randint(150, 300)) for _ in range(20)]
+arbres = [(randint(0, WIDTH), randint(150, 250)) for _ in range(10)]
+fissures = [(randint(0, WIDTH), randint(300, 850)) for _ in range(30)]
+
 
 # --- Conteneurs noirs ---
 conteneurs_noirs = [
@@ -262,14 +271,11 @@ while running:
     taille_voiture = len(mots_rects)
     
     pygame.draw.rect(surface, (80,160,80), (0, 0, WIDTH, 300))
-    for i in range(0, WIDTH, 40):
-        pygame.draw.rect(surface, (120,120,120), (i,170, 5, 30))
-    pygame.draw.line(surface, (120,120,120), (0, 170), (WIDTH, 170), 4)
-    pygame.draw.line(surface, (120,120,120), (0, 185), (WIDTH, 185), 2)
+
 
 
     pygame.draw.rect(surface, (80,160,80), (0, 620, WIDTH, HEIGHT-620))
-    pygame.draw.rect(surface, (135,206,235), (0, 0, WIDTH, 150))
+    pygame.draw.rect(surface, (135,206,235), (0, 0, WIDTH, 150))#bleu
     pygame.draw.rect(surface, GRISCLAIR, (0, 300, WIDTH, 550))
     pygame.draw.rect(surface, (90,90,90), (0, 500, WIDTH, 200))
 
@@ -285,6 +291,32 @@ while running:
     
     for i in range(0, WIDTH, 80):
         pygame.draw.rect(surface, (255,255,255), (i, 590, 40, 5))
+    for x, y in herbes_haut:
+        pygame.draw.line(surface, (60,140,60), (x, y), (x, y - 10), 2)
+
+    for x, y in herbes_bas:
+        pygame.draw.line(surface, (60,140,60), (x, y), (x, y - 10), 2)
+
+
+    for x, y in fleurs:
+        pygame.draw.circle(surface, (255,255,0), (x, y), 3)
+        pygame.draw.circle(surface, (255,0,0), (x+3, y), 2)
+        pygame.draw.circle(surface, (255,0,0), (x-3, y), 2)
+    for x, y in cailloux:
+        pygame.draw.circle(surface, (120,120,120), (x,y), 3)
+    for x, y in arbres:
+        pygame.draw.rect(surface, (100,70,40), (x, y, 10, 20))
+        pygame.draw.circle(surface, (50,150,50), (x+5, y), 15)
+
+    for i in range(0, WIDTH, 40):
+        pygame.draw.rect(surface, (120,120,120), (i,170, 5, 30))
+        pygame.draw.line(surface, (120,120,120), (0, 170), (WIDTH, 170), 4)
+        pygame.draw.line(surface, (120,120,120), (0, 185), (WIDTH, 185), 2)
+    for i in range(0, WIDTH, 200):
+        pygame.draw.line(surface, (255,255,0), (i, 500), (i+100, 500), 4)
+        pygame.draw.line(surface, (255,255,0), (i, 700), (i+100, 700), 4)
+
+
 
 
 
