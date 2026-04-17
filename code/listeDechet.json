@@ -4,13 +4,22 @@
             "Polystyrene",
             "Papier peint",
             "Cuvette de toilette",
-            "Pots de Peinture en Plastique"
+            "Pots de Peinture en Plastique",
+            "Sacs d'enduits vides",
+            "Sacs de mortier vides"
         ],
         "Bois": [
             "Planche",
             "Palette",
-            "Poutre"
-            
+            "Poutre en bois",
+            "Porte en bois",
+            "Fenetre en bois",
+            "Bois de charpente",
+            "Bois de construction",
+            "Bois de menuiserie",
+            "Bois de palette",
+            "Bois de Jardin",
+            "Bois de Chauffage"
         ],
         "Mobilier": [
             "Chaise",
@@ -27,20 +36,19 @@
             "Meuble en plastique",
             "Caisse en plastique",
             "Caisse en metal",
-            "Oreiller en mousse",
-            "Coussin en mousse",
-            "Couette en mousse",
-            "Canape en mousse",
+            "Oreiller",
+            "Coussin",
+            "Couette",
+            "Canape",
             "Sommier en bois",
             "Sommier en metal",
             "Piscine",
             "Trampoline",
             "Caisse en Plastique",
-            "Chaise d'extérieur",
+            "Chaise d'exterieur",
             "Chaise de Bureau",
             "Parasol",
             "Salon Exterieur"
-
         ],
         "Bois ronds": [
             "Buche",
@@ -49,9 +57,18 @@
         ],
         "Gravats": [
             "Brique",
-            "Agglo",
-            "Carrelarge",
-            "Carreau casse"
+            "Parpaings",
+            "Carrelage",
+            "Carreau casse",
+            "Tuile",
+            "Terre",
+            "Sable",
+            "Gravier",
+            "Lavabo en ceramique",
+            "Evier en ceramique",
+            "Vasque en ceramique",
+            "Baignoire en ceramique",
+            "Toilette en ceramique"
         ],
         "Placo": [
             "Plaque de platre",
@@ -65,10 +82,15 @@
             "Ciment",
             "Laine de Verre",
             "Miroir",
-            "Polystyrene extrudé"
+            "Polystyrene extrude",
+            "Polystyrene expansé",
+            "Plaque de placo avec carrelarge",
+            "Sacs de mortier dures",
+            "Sacs d'enduits dures",
+            "Fibre de verre",
+            "Pare-brise"
         ],
         "Cartons": [
-            "Carton de demenagement",
             "Carton d'emballage",
             "Cartons"
         ],
@@ -82,7 +104,20 @@
         "Bidons": [
             "Bidon d'huile vide",
             "Bidon de peinture vide",
-            "Bidon de carburant vide"
+            "Bidon de carburant vide",
+            "Bidon de produit chimique vide",
+            "Bidon de jardinage vide",
+            "Bidon de traitement de piscine vide",
+            "Bidon de traitement de l'eau vide",
+            "Bidon de traitement de l'air vide",
+            "Bidon de traitement de la moisissure vide",
+            "Bidon de traitement de la rouille vide",
+            "Bidon de traitement de la corrosion vide",
+            "Bidon de traitement de la graisse vide",
+            "Bidon de traitement de la tache vide",
+            "Bidon de traitement de la peinture vide",
+            "Bidon de produit de traitement de la piscine vide",
+            "Bidon de produit de traitement de l'eau vide"
         ],
         "Huile": [
             "Huile moteur usagee",
@@ -91,8 +126,10 @@
         "Pile/Ampoule/Neon": [
             "Pile AA",
             "Pile AAA",
+            "Batterie lithium",
             "Pile Bouton",
             "Ampoule LED",
+            "Ampoule halogene",
             "Tube neon"
         ],
         "Article de Sport": [
@@ -100,26 +137,40 @@
             "Ballon de basketball",
             "Raquette",
             "Skateboard",
-            "Matelas Gonfable de piscine",
+            "Matelas Gonfable piscine",
             "Piscine pour enfant",
             "Pneu velo"
         ],
         "Pneu": [
             "Pneu voiture",
+            "Pneu moto",
             "Pneu camion"
         ],
         "Verre": [
             "Bouteille en verre",
-            "Bouteille de Biere/Vins/Champagne",
+            "Bouteille de Biere",
+            "Bouteille de Vins",
             "Pots de Confiture",
-
+            "Bouteille de Champagne",
             "Bocal en verre"
         ],
         "Papier": [
             "Feuille de papier",
             "Journal",
             "Livre",
+            "Cahier",
+            "Notice",
             "Magazine"
+        ],
+        "Jouets": [
+            "Peluche",
+            "Maison de poupee",
+            "Camion de police",
+            "Poupee",
+            "Barbie",
+            "Playmobil",
+            "Lego",
+            "Camion de Pompier"
         ],
         "DDS": [
             "Produit chimique",
@@ -131,7 +182,25 @@
             "Bombe anticrevaison",
             "Cartouche de silicone",
             "Cartouche de Mastique",
-            "Produit de jardinage"
+            "Produit de jardinage",
+            "Degripant",
+            "Acide",
+            "White spirit",
+            "Diluant",
+            "Colle forte",
+            "Résin",
+            "Base",
+            "Chlore",
+            "Engrais",
+            "Produit de traitement de piscine",
+            "Produit de traitement de l'eau",
+            "Produit de traitement de l'air",
+            "Produit de traitement de la moisissure",
+            "Produit de traitement de la rouille",
+            "Produit de traitement de la corrosion",
+            "Produit de traitement de la graisse",
+            "Produit de traitement de la tache",
+            "Produit de traitement de la peinture"
         ]
     }
 }

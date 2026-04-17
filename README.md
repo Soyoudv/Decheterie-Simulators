@@ -1,35 +1,93 @@
-# DéchetSimulators
+## Décheterie Simulators
+<p align="center">  
+  <img src="image/ImageGit/accueil.PNG" width="600px">
+  <img src="image/ImageGit/demarrage.PNG" width="300px">
+  <img src="image/ImageGit/jeu.PNG" width="300px"><br><br>
+  <img src="image/ImageGit/pause.PNG" width="300px">
+  <img src="image/ImageGit/fin.PNG" width="300px">
+  
+</p>
 
-DéchetSimulators est un jeu/simulation interactif développé en **Python** avec **Pygame**. Il permet de visualiser une déchetterie, d’interagir avec des bennes, des conteneurs et des bâtiments, et de simuler l’entrée d’une voiture avec affichage de bulles d’informations sur les déchets.
+DéchetSimulators est un jeu/simulation interactif développé en Python avec Pygame. Il permet de visualiser une déchetterie, d’interagir avec des bennes, des conteneurs et des bâtiments, et de simuler l’arrivée d’une voiture avec affichage de bulles d’informations sur les déchets.
 
 ---
-
 ## Fonctionnalités
-
-- Affichage d’une déchetterie avec **bennes colorées** pour différents types de déchets.
+- Affichage d’une déchetterie avec bennes colorées pour différents types de déchets.
 - Conteneurs noirs et bâtiments cliquables (Emmaüs, DDS, etc.).
-- Affichage d’une **voiture entrant dans la déchetterie**.
+- Affichage d’une voiture entrant dans la déchetterie.
 - Bulles d’informations affichées lorsque la voiture s’arrête.
-- Les textes dans la bulle peuvent être **sélectionnés et déplacés (drag & drop)** individuellement.
+- Les textes dans la bulle peuvent être sélectionnés et déplacés (drag & drop) individuellement.
 - Interface simple et visuelle pour identifier les types de déchets et leur emplacement.
+- Système de score dynamique et coloré selon la réussite.
+- Menu de pause et écran de fin intégrés.
+---
+## 🛠 Installation
+
+Vous pouvez jouer par deux manières différentes:
+
+  - Depuis un éditeur de code:
+  1. Assurez-vous d’avoir **Python 3.11+** installé sur votre machine.  
+  2. Installez **Pygame** si ce n’est pas déjà fait :  
+
+  ```bash
+  pip install pygame
+  ```
+  
+  - Depuis un exécutable téléchargeable depuis itch.io:
+    https://veroniquevospair.itch.io/decheterie-simulator
+
+Vous devez le télécharger puis le dézipper et ensuite lancer le fichier app.exe 
 
 ---
+## Fonctionnement du jeu
 
-## Installation
+Vous incarnez un joueur qui découvre la nouvelle déchetterie de Telleville, gérée par Lenul Agglo. Votre objectif est d’aider les visiteurs à trier correctement leurs déchets. Pour cela :
 
-1. Assurez-vous d’avoir **Python 3.11+** installé sur votre machine.
-2. Installer Pygame si ce n’est pas déjà fait :
-
-```bash
-pip install pygame
-```
-
+- Vous devrez vider les voitures des visiteurs.
+- Placer les déchets dans les bonnes bennes rapporte des points.
+- Se tromper vous fait perdre des points.
 ---
-## Fonctionnement du jeu 
+## Page de démarrage
 
-Bonjour vous avez entendu par votre agglomération (Lundi Alggo) qu'une nouvelle decheterie à Telleville vient d'ouvrir près de chez vous. Ainsi dès l'ouverture vous vous y rendez pour la découvrir et la un agent de cette décheterie vous propose de vous apprendre a trier en aidant les gens à trier pour cela vous devrez vider les voitures des gens et placer les dechets dans les bonnes bennes vous rapportant des points et inversement si vous vous trompez.
+Au lancement du jeu, vous pouvez choisir parmi 4 modes de difficulté :
 
-## Astuce
+- Facile
+- Moyen
+- Difficile
+- Personnalisé
+---
+Pour les trois premiers modes, le score maximum est prédéfini.
+Le mode personnalisé vous permet de choisir vous-même le score maximum que vous souhaitez atteindre.
+---
+---
+## Page de pause
 
-1. Des agents de la decheterie se trouve dans la salle de repos vous pouvez les soliciter si vous ne savez pas ou jeter les dechets (Utilisable 1 fois par voiture pour 1 objet).
-2. Le dechet apparait en vert lorsque que cela correpond à la bonne benne et en rouge quand le dechet n'est pas dans la bonne benne.
+Vous pouvez mettre le jeu en pause à tout moment en appuyant sur la touche P.
+
+Deux options s’offrent alors à vous :
+
+- R : Reprendre la partie.
+- Q : Quitter le jeu.
+---
+## Page de fin
+
+Lorsque vous atteignez le score maximum, le jeu affiche la page de fin.
+
+Selon votre score final, vous êtes classé dans ce tableau :
+
+- 0 à 24 % : Commencez par trier chez vous avant d’aider les autres.
+- 25 à 49 % : Votre tri chez vous est correct, mais manque de rigueur.
+- 50 à 74 % : Très bon gardien de déchetterie.
+- 75 à 99 % : Excellent niveau de tri, vous pourriez travailler dans une déchetterie.
+- 100 % : Prodige du tri ! Vous montrez l’exemple à vos collègues sur le terrain. On vous considère parmi les plus grand dans le tri.
+---
+
+## Astuces
+1. Des agents de la déchetterie se trouvent dans la salle de repos.
+    Vous pouvez les solliciter si vous ne savez pas où jeter un déchet (1 aide par objet et par voiture).
+2. Code couleur des déchets :
+- Vert : Déchet correctement placé.
+- Bleu : Aide fournie par un agent.
+- Rouge : Déchet mal placé.
+
+

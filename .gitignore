@@ -1,1 +1,33 @@
 .vscode
+__pycache__
+pagedemarrage.cpython-311
+pause.cpython-311
+pageFin.cpython-311
+FuturAjout.txt
+# PyInstaller
+build/
+dist/
+*.spec
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environnements
+venv/
+env/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# logs
+*.log
+
+.~lock.futurajout.odt#
