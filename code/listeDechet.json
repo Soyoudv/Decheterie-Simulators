@@ -106,7 +106,20 @@
         "Bidons": [
             "Bidon d'huile vide",
             "Bidon de peinture vide",
-            "Bidon de carburant vide"
+            "Bidon de carburant vide",
+            "Bidon de produit chimique vide",
+            "Bidon de jardinage vide",
+            "Bidon de traitement de piscine vide",
+            "Bidon de traitement de l'eau vide",
+            "Bidon de traitement de l'air vide",
+            "Bidon de traitement de la moisissure vide",
+            "Bidon de traitement de la rouille vide",
+            "Bidon de traitement de la corrosion vide",
+            "Bidon de traitement de la graisse vide",
+            "Bidon de traitement de la tache vide",
+            "Bidon de traitement de la peinture vide",
+            "Bidon de produit de traitement de la piscine vide",
+            "Bidon de produit de traitement de l'eau vide"
         ],
         "Huile": [
             "Huile moteur usagee",
@@ -172,7 +185,25 @@
             "Cartouche de silicone",
             "Cartouche de Mastique",
             "Produit de jardinage",
-            "Degripant"
+            "Degripant",
+            "Acide",
+            "White spirit",
+            "Diluant",
+            "Colle forte",
+            "Résin",
+            "Base",
+            "Chlore",
+            "Engrais",
+            "Produit de traitement de piscine",
+            "Produit de traitement de l'eau",
+            "Produit de traitement de l'air",
+            "Produit de traitement de la moisissure",
+            "Produit de traitement de la rouille",
+            "Produit de traitement de la corrosion",
+            "Produit de traitement de la graisse",
+            "Produit de traitement de la tache",
+            "Produit de traitement de la peinture"
+
         ]
     }
 }
