@@ -129,13 +129,13 @@ benne_img = pygame.transform.scale(benne_img, (benne_width, benne_height))
 poubellenoir = pygame.image.load(resource_path("image/Dessin/poubelle.png")).convert_alpha()
 poubellenoir = pygame.transform.scale(poubellenoir, (50, 25))
 
-poubellevert = pygame.image.load(resource_path("image/Dessin/poubellevert.png")).convert_alpha()
+poubellevert = pygame.image.load(resource_path("image/Dessin/poubelle_v.png")).convert_alpha()
 poubellevert = pygame.transform.scale(poubellevert, (50, 25))
 
-poubellebleu = pygame.image.load(resource_path("image/Dessin/poubellebleu.png")).convert_alpha()
+poubellebleu = pygame.image.load(resource_path("image/Dessin/poubelle_b.png")).convert_alpha()
 poubellebleu = pygame.transform.scale(poubellebleu, (50, 25))
 
-poubellenoirR = pygame.image.load(resource_path("image/Dessin/poubelleR.png")).convert_alpha()
+poubellenoirR = pygame.image.load(resource_path("image/Dessin/poubelle_r.png")).convert_alpha()
 poubellenoirR = pygame.transform.scale(poubellenoirR, (25, 50))
 
 # --- Gardien ---
