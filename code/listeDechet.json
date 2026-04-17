@@ -4,12 +4,22 @@
             "Polystyrene",
             "Papier peint",
             "Cuvette de toilette",
-            "Pots de Peinture en Plastique"
+            "Pots de Peinture en Plastique",
+            "Sacs d'enduits vides",
+            "Sacs de mortier vides"
         ],
         "Bois": [
             "Planche",
             "Palette",
-            "Poutre en bois"
+            "Poutre en bois",
+            "Porte en bois",
+            "Fenetre en bois",
+            "Bois de charpente",
+            "Bois de construction",
+            "Bois de menuiserie",
+            "Bois de palette",
+            "Bois de Jardin",
+            "Bois de Chauffage"
             
         ],
         "Mobilier": [
@@ -50,8 +60,17 @@
         "Gravats": [
             "Brique",
             "Parpaings",
-            "Carrelarge",
-            "Carreau casse"
+            "Carrelage",
+            "Carreau casse",
+            "Tuile",
+            "Terre",
+            "Sable",
+            "Gravier",
+            "Lavabo en ceramique",
+            "Evier en ceramique",
+            "Vasque en ceramique",
+            "Baignoire en ceramique",
+            "Toilette en ceramique"
         ],
         "Placo": [
             "Plaque de platre",
@@ -65,7 +84,13 @@
             "Ciment",
             "Laine de Verre",
             "Miroir",
-            "Polystyrene extrude"
+            "Polystyrene extrude",
+            "Polystyrene expansé",
+            "Plaque de placo avec carrelarge",
+            "Sacs de mortier dures",
+            "Sacs d'enduits dures",
+            "Fibre de verre",
+            "Pare-brise"
         ],
         "Cartons": [
             "Carton d'emballage",
@@ -90,7 +115,7 @@
         "Pile/Ampoule/Neon": [
             "Pile AA",
             "Pile AAA",
-            "Battery lithium",
+            "Batterie lithium",
             "Pile Bouton",
             "Ampoule LED",
             "Ampoule halogene",
@@ -147,7 +172,7 @@
             "Cartouche de silicone",
             "Cartouche de Mastique",
             "Produit de jardinage",
-            "Degripants"
+            "Degripant"
         ]
     }
 }
