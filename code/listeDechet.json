@@ -204,6 +204,14 @@
             "Produit de traitement de la tache",
             "Produit de traitement de la peinture"
 
+        ],
+        "Metaux": [
+            "Ferraille",
+            "Tuyau en cuivre",
+            "Radiateur",
+            "Grillage",
+            "Cadre metal"
         ]
+
     }
 }
